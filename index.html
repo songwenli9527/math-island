@@ -1,0 +1,1843 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数学冒险岛 · 北师大版六年级知识地图</title>
+<meta name="theme-color" content="#F7C948">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="数学冒险岛">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icon-180.png">
+<link rel="icon" type="image/png" href="./icon-192.png">
+<style>
+  :root{
+    --ink:#3A342B; --paper:#FFF9EC; --red:#E85A4F; --orange:#F0A63A; --green:#5CA35C;
+    --blue:#4E8FD0; --purple:#9B6BD3; --pink:#EE7BA7; --yellow:#F7C948; --deeporange:#E87B35;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;font-family:"KaiTi","楷体","STKaiti","Kaiti SC",cursive;}
+  body{background:
+    repeating-linear-gradient(0deg,transparent 0 27px,rgba(78,143,208,.07) 27px 28px),
+    repeating-linear-gradient(90deg,transparent 0 27px,rgba(78,143,208,.07) 27px 28px),
+    var(--paper);
+    color:var(--ink);min-height:100vh;}
+  .wob{border:2.5px solid var(--ink);border-radius:255px 15px 225px 15px/15px 225px 15px 255px;background:#fff;}
+  .wob2{border:2.5px solid var(--ink);border-radius:15px 225px 15px 255px/255px 15px 225px 15px;background:#fff;}
+  .wob3{border:2.5px solid var(--ink);border-radius:55% 45% 48% 52%/45% 55% 45% 55%;}
+  .tape{position:relative;}
+  .tape::before{content:"";position:absolute;top:-11px;left:50%;transform:translateX(-50%) rotate(-3deg);
+    width:76px;height:20px;background:rgba(247,201,72,.55);border:1px dashed rgba(58,52,43,.25);border-radius:3px;z-index:3;}
+  header{background:rgba(255,252,240,.9);border-bottom:3px solid var(--ink);padding:0 20px;min-height:66px;
+    display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;flex-wrap:wrap;gap:8px;}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:21px;letter-spacing:1px;}
+  .logo{width:38px;height:34px;border:2.5px solid var(--ink);border-radius:55% 45% 48% 52%/45% 55% 45% 55%;
+    background:linear-gradient(135deg,var(--yellow),var(--orange));transform:rotate(-4deg);}
+  nav{display:flex;gap:8px;flex-wrap:wrap;}
+  nav button{border:2.5px solid var(--ink);background:#fff;padding:7px 15px;font-size:16px;color:var(--ink);
+    cursor:pointer;font-weight:700;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;transition:.12s;}
+  nav button:hover{transform:rotate(-1.5deg) translateY(-1px);}
+  nav button.active{background:var(--yellow);box-shadow:2.5px 2.5px 0 var(--ink);}
+  .right{display:flex;align-items:center;gap:9px;font-weight:700;flex-wrap:wrap;}
+  .chipStat{border:2.5px solid var(--ink);border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+    padding:6px 13px;font-size:15px;background:#fff;display:flex;align-items:center;gap:6px;}
+  .chipStat b{color:var(--red);}
+  .meBtn{border:2.5px solid var(--ink);background:var(--blue);color:#fff;font-weight:700;font-size:14px;cursor:pointer;
+    padding:6px 13px;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;}
+  main{max-width:1220px;margin:0 auto;padding:26px 24px 60px;}
+  h1{font-size:27px;letter-spacing:1px;}
+  .sub{font-size:15px;color:#7A7060;margin:6px 0 20px;}
+  .handline{display:inline-block;border-bottom:3px solid var(--red);transform:rotate(-.5deg);padding-bottom:2px;}
+  /* ===== 继续上次学习卡片 ===== */
+  .resume{display:flex;align-items:center;gap:16px;padding:14px 18px;margin-bottom:20px;background:#FFF3D6;
+    border:2.5px solid var(--ink);border-radius:18px 240px 18px 240px/240px 18px 240px 18px;box-shadow:4px 4px 0 rgba(58,52,43,.18);}
+  .resume .ico{width:52px;height:52px;flex:none;display:flex;align-items:center;justify-content:center;font-size:24px;
+    background:var(--orange);color:#fff;border:2.5px solid var(--ink);border-radius:55% 45% 48% 52%/45% 55% 45% 55%;transform:rotate(-5deg);}
+  .resume .txt{flex:1;min-width:200px;}
+  .resume b{font-size:17px;}
+  .resume p{font-size:13.5px;color:#7A5A20;margin-top:2px;}
+  /* ===== 主地图 ===== */
+  .map{position:relative;background:rgba(255,255,255,.75);border:2.5px solid var(--ink);
+    border-radius:22px 255px 22px 255px/255px 22px 255px 22px;height:660px;overflow:auto;box-shadow:5px 6px 0 rgba(58,52,43,.15);}
+  .map-inner{position:relative;width:1150px;height:660px;}
+  .hub{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%) rotate(-2deg);width:220px;padding:18px 8px;
+    text-align:center;color:#fff;background:var(--blue);border:3px solid var(--ink);
+    border-radius:55% 45% 48% 52%/45% 55% 45% 55%;box-shadow:4px 4px 0 rgba(58,52,43,.4);z-index:2;}
+  .hub b{font-size:24px;display:block;}
+  .hub span{font-size:13px;opacity:.92;}
+  .bookTag{position:absolute;width:130px;text-align:center;padding:6px 0;font-size:17px;font-weight:700;color:#fff;
+    border:2.5px solid var(--ink);border-radius:255px 15px 225px 15px/15px 225px 15px 255px;transform:rotate(-2deg);z-index:2;}
+  .unit{position:absolute;width:178px;padding:9px 12px;cursor:pointer;transition:.13s;z-index:2;}
+  .unit:hover{transform:rotate(-1.5deg) translateY(-2px);box-shadow:3px 4px 0 rgba(58,52,43,.35);}
+  .unit .no{position:absolute;top:-13px;left:-13px;width:30px;height:30px;display:flex;align-items:center;justify-content:center;
+    font-size:14px;font-weight:700;color:#fff;border:2px solid var(--ink);border-radius:50%;transform:rotate(-8deg);}
+  .unit b{font-size:17px;display:block;}
+  .unit i{font-style:normal;font-size:11.5px;color:#8A8073;display:block;margin-top:1px;}
+  .unit.done::after{content:"✓ 已通关";position:absolute;top:-12px;right:-8px;background:var(--green);color:#fff;
+    font-size:11px;padding:2px 7px;border:2px solid var(--ink);border-radius:9px;transform:rotate(6deg);}
+  .mbar{height:6px;border:1.5px solid var(--ink);border-radius:4px;overflow:hidden;margin-top:4px;background:#fff;}
+  .mbar i{display:block;height:100%;background:var(--green);}
+  /* ===== 弹窗 ===== */
+  .mask{position:fixed;inset:0;background:rgba(58,52,43,.5);display:none;align-items:flex-start;justify-content:center;
+    z-index:100;padding:22px;overflow:auto;}
+  .mask.show{display:flex;}
+  /* 开机登录门：换设备后的“登录”入口 */
+  .gate{position:fixed;inset:0;z-index:400;display:none;align-items:center;justify-content:center;padding:20px;overflow:auto;
+    background:linear-gradient(160deg,#FFF6DF 0%,#FFEFD2 55%,#FFE7C4 100%);}
+  .gate.show{display:flex;}
+  .gateCard{width:min(780px,100%);background:#FFFCF0;border:3.5px solid var(--ink);border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+    box-shadow:9px 9px 0 rgba(58,52,43,.22);padding:30px 30px 26px;margin:auto;text-align:center;}
+  .gateLogo{width:62px;height:54px;border:2.5px solid var(--ink);border-radius:55% 45% 48% 52%/45% 55% 45% 55%;
+    background:linear-gradient(135deg,var(--yellow),var(--orange));transform:rotate(-4deg);margin:0 auto 10px;}
+  .gateCard h2{font-size:34px;line-height:1.25;margin-bottom:6px;}
+  .gateCard .gsub{font-size:16px;color:#7A7060;line-height:1.7;margin-bottom:20px;}
+  .gateWays{display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:left;}
+  .gateWay{border:2.5px solid var(--ink);border-radius:20px;background:#fff;padding:18px 16px;cursor:pointer;transition:.13s;}
+  .gateWay:hover{transform:translateY(-3px);box-shadow:4px 4px 0 rgba(58,52,43,.2);}
+  .gateWay.on{border-color:var(--blue);box-shadow:inset 0 0 0 2.5px var(--blue);}
+  .gateWay h4{font-size:20px;display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+  .gateWay p{font-size:14px;color:#8A8073;line-height:1.6;}
+  .gateBody{margin-top:18px;border-top:2.5px dashed rgba(58,52,43,.25);padding-top:18px;text-align:left;display:none;}
+  .gateBody.show{display:block;}
+  .gateBack{font-size:14px;color:#8A8073;text-decoration:underline;cursor:pointer;display:inline-block;margin-top:14px;}
+  @media(max-width:720px){.gateWays{grid-template-columns:1fr;}.gateCard h2{font-size:28px;}}
+  .poster{background:
+    repeating-linear-gradient(0deg,transparent 0 27px,rgba(78,143,208,.06) 27px 28px),#FFFDF5;
+    border:3px solid var(--ink);border-radius:20px 240px 24px 240px/240px 24px 240px 20px;
+    width:1020px;max-width:98vw;position:relative;box-shadow:8px 9px 0 rgba(58,52,43,.28);margin-bottom:20px;}
+  .p-head{position:relative;text-align:center;padding:30px 0 6px;}
+  .p-vol{display:inline-block;background:var(--green);color:#fff;font-size:14px;font-weight:700;padding:4px 16px;
+    border:2.5px solid var(--ink);border-radius:255px 15px 225px 15px/15px 225px 15px 255px;transform:rotate(-2deg);}
+  .p-title{font-size:34px;font-weight:700;letter-spacing:4px;margin-top:8px;}
+  .p-title em{font-style:normal;color:var(--red);}
+  .p-stars{position:absolute;font-size:26px;}
+  .stage{position:relative;height:470px;}
+  .stage svg.links{position:absolute;inset:0;z-index:0;}
+  .uHub{position:absolute;left:50%;top:200px;transform:translate(-50%,-50%) rotate(-2deg);width:170px;z-index:2;
+    text-align:center;color:#fff;padding:17px 6px;border:3px solid var(--ink);
+    border-radius:55% 45% 48% 52%/45% 55% 45% 55%;box-shadow:4px 4px 0 rgba(58,52,43,.4);}
+  .uHub b{font-size:24px;display:block;letter-spacing:2px;}
+  .uHub span{font-size:11.5px;opacity:.92;}
+  .bcard{position:absolute;width:320px;padding:13px 15px 12px;z-index:2;}
+  .bcard .no{position:absolute;top:-15px;left:-14px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;
+    font-size:16px;font-weight:700;color:#fff;background:var(--yellow);border:2.5px solid var(--ink);
+    border-radius:50% 46% 52% 48%/48% 52% 46% 54%;transform:rotate(-8deg);box-shadow:2px 2px 0 rgba(58,52,43,.4);}
+  .bcard h4{font-size:18.5px;display:flex;align-items:center;gap:8px;letter-spacing:1px;}
+  .bcard h4 svg{flex:none;}
+  .bcard ul{list-style:none;margin-top:6px;}
+  .bcard li{font-size:14.5px;line-height:1.85;padding-left:20px;position:relative;}
+  .bcard li::before{content:"✎";position:absolute;left:0;color:inherit;opacity:.65;font-size:13px;}
+  .p-foot{display:flex;gap:16px;align-items:stretch;justify-content:center;padding:6px 26px 24px;flex-wrap:wrap;}
+  .warnBox{flex:1;min-width:300px;max-width:470px;background:#FFECEA;border:2.5px solid var(--red);color:#B23A30;
+    border-radius:18px 220px 18px 220px/220px 18px 220px 18px;padding:13px 16px;font-size:14.5px;line-height:1.7;}
+  .warnBox b{font-size:15.5px;}
+  .egBox{flex:1;min-width:280px;max-width:440px;background:#EFF7EA;border:2.5px solid var(--green);color:#3E6E3E;
+    border-radius:220px 18px 220px 18px/18px 220px 18px 220px;padding:13px 16px;font-size:14.5px;line-height:1.7;}
+  /* ===== 难度选择 ===== */
+  .diffZone{padding:0 26px 8px;text-align:center;}
+  .diffRow{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .diffCard{width:210px;padding:12px 14px;cursor:pointer;transition:.13s;text-align:left;background:#fff;}
+  .diffCard:hover{transform:rotate(-1.2deg) translateY(-3px);box-shadow:4px 5px 0 rgba(58,52,43,.3);}
+  .diffCard.sel{box-shadow:4px 4px 0 var(--ink);}
+  .diffCard h5{font-size:17px;display:flex;align-items:center;gap:8px;}
+  .diffCard .coin{font-size:13px;color:#8A8073;margin-top:5px;line-height:1.6;}
+  .diffCard .tagx{display:inline-block;font-size:12px;font-weight:700;color:#fff;padding:2px 9px;border:1.8px solid var(--ink);
+    border-radius:9px;margin-top:7px;}
+  .startZone{text-align:center;padding:6px 26px 26px;}
+  .bigBtn{border:3px solid var(--ink);background:var(--yellow);color:var(--ink);font-size:19px;font-weight:700;
+    padding:13px 46px;cursor:pointer;letter-spacing:2px;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+    box-shadow:4px 4px 0 var(--ink);transition:.12s;}
+  .bigBtn:hover{transform:rotate(-1deg) translate(-1px,-2px);box-shadow:6px 6px 0 var(--ink);}
+  .bigBtn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink);}
+  .midBtn{border:2.5px solid var(--ink);background:#fff;font-size:15px;font-weight:700;padding:9px 22px;cursor:pointer;
+    border-radius:255px 15px 225px 15px/15px 225px 15px 255px;transition:.12s;}
+  .midBtn:hover{background:var(--yellow);}
+  .closeX{position:absolute;top:14px;right:16px;width:36px;height:36px;border:2.5px solid var(--ink);background:#fff;
+    font-size:17px;cursor:pointer;border-radius:50% 46% 52% 48%/48% 52% 46% 54%;z-index:5;}
+  .closeX:hover{background:var(--red);color:#fff;}
+  /* ===== 卡片网格 ===== */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .gcard{padding:15px 17px;cursor:pointer;transition:.13s;}
+  .gcard:hover{transform:rotate(-1deg) translateY(-3px);box-shadow:4px 5px 0 rgba(58,52,43,.3);}
+  .gcard .top{display:flex;gap:13px;align-items:center;margin-bottom:10px;}
+  .gicon{width:52px;height:48px;flex:none;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;
+    color:#fff;border:2.5px solid var(--ink);border-radius:55% 45% 48% 52%/45% 55% 45% 55%;transform:rotate(-4deg);}
+  .gcard h4{font-size:18px;}
+  .gcard p{font-size:13px;color:#8A8073;}
+  .gcard .bot{display:flex;justify-content:space-between;align-items:center;}
+  .gcard .meta{font-size:13px;color:#8A8073;}
+  .gbtn{font-size:13.5px;font-weight:700;padding:6px 15px;border:2px solid var(--ink);
+    border-radius:255px 15px 225px 15px/15px 225px 15px 255px;background:#fff;}
+  .badges{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
+  .badge{padding:18px;text-align:center;}
+  .badge .b{width:64px;height:64px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:26px;
+    border:2.5px solid var(--ink);border-radius:55% 45% 48% 52%/45% 55% 45% 55%;}
+  .badge.locked{opacity:.45;filter:grayscale(1);}
+  .badge h4{font-size:16px;}
+  .badge p{font-size:12.5px;color:#8A8073;margin-top:4px;}
+  /* ===== 心愿 ===== */
+  .wishGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;}
+  .wish{padding:16px;position:relative;display:flex;flex-direction:column;gap:8px;}
+  .wico{width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:26px;flex:none;
+    background:#FFF3D6;border:2.5px solid var(--ink);border-radius:55% 45% 48% 52%/45% 55% 45% 55%;transform:rotate(-4deg);}
+  .wish .wico{width:54px;height:54px;}
+  .wish h4{font-size:18px;}
+  .wish .cost{font-size:14px;color:#B2781B;font-weight:700;}
+  .wishBar{height:8px;border:1.8px solid var(--ink);border-radius:5px;background:#fff;overflow:hidden;}
+  .wishBar i{display:block;height:100%;background:repeating-linear-gradient(45deg,var(--orange) 0 8px,var(--yellow) 8px 16px);}
+  .ticket{display:flex;align-items:center;gap:12px;padding:12px 14px;margin-bottom:12px;background:#fff;
+    border:2.5px solid var(--green);border-radius:14px 190px 14px 190px/190px 14px 190px 14px;}
+  .ticket.used{opacity:.55;border-color:#B9B2A4;}
+  .ticket .num{font-size:20px;font-weight:700;color:var(--red);}
+  input,textarea,select{font-family:inherit;font-size:15px;border:2.2px solid var(--ink);border-radius:10px;padding:8px 11px;background:#fff;color:var(--ink);}
+  input:focus,textarea:focus,select:focus{outline:2px solid var(--orange);}
+  /* ===== AI 教练 ===== */
+  .coachWrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .panel{background:#fff;border:2.5px solid var(--ink);border-radius:20px 240px 20px 240px/240px 20px 240px 20px;padding:18px 20px;box-shadow:4px 5px 0 rgba(58,52,43,.15);}
+  .panel h3{font-size:20px;margin-bottom:4px;display:flex;align-items:center;gap:8px;}
+  .panel .hint{font-size:13px;color:#8A8073;margin-bottom:14px;line-height:1.6;}
+  .mRow{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+  .mRow .nm{width:96px;font-size:14px;flex:none;}
+  .mRow .bar{flex:1;height:14px;border:2px solid var(--ink);border-radius:8px;background:#F4F0E6;overflow:hidden;}
+  .mRow .bar i{display:block;height:100%;transition:.4s;}
+  .mRow .pc{width:44px;text-align:right;font-size:13px;font-weight:700;}
+  .diag{background:#FFF9E8;border:2.2px dashed var(--orange);border-radius:14px;padding:12px 14px;font-size:15px;line-height:1.85;}
+  .diag b{color:var(--red);}
+  .weak{display:inline-block;background:#FFE4E1;border:2px solid var(--red);color:#B23A30;font-size:13.5px;
+    padding:3px 11px;margin:3px 5px 3px 0;border-radius:11px;font-weight:700;}
+  .good{display:inline-block;background:#E4F2E0;border:2px solid var(--green);color:#3E6E3E;font-size:13.5px;
+    padding:3px 11px;margin:3px 5px 3px 0;border-radius:11px;font-weight:700;}
+  /* ===== 答题 ===== */
+  .quiz{width:680px;max-width:96vw;padding:24px 26px 26px;}
+  .quiz-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;}
+  .quiz-top b{font-size:19px;}
+  .combo{background:var(--yellow);border:2.5px solid var(--ink);font-weight:700;font-size:14px;padding:5px 14px;
+    border-radius:255px 15px 225px 15px/15px 225px 15px 255px;transform:rotate(2deg);}
+  .track{height:10px;border:2px solid var(--ink);border-radius:9px;overflow:hidden;margin-bottom:18px;background:#fff;}
+  .track i{display:block;height:100%;background:repeating-linear-gradient(45deg,var(--red) 0 10px,var(--orange) 10px 20px);transition:.3s;}
+  .q{font-size:19px;font-weight:700;line-height:1.75;margin:10px 0 18px;}
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .opt{display:flex;align-items:center;gap:12px;border:2.5px solid var(--ink);background:#fff;padding:13px 15px;
+    cursor:pointer;font-size:16.5px;transition:.12s;border-radius:18px 200px 18px 200px/200px 18px 200px 18px;}
+  .opt:hover{background:#FFF6DC;transform:translate(-1px,-1px);box-shadow:3px 3px 0 rgba(58,52,43,.25);}
+  .opt em{width:30px;height:30px;flex:none;display:flex;align-items:center;justify-content:center;font-style:normal;
+    font-weight:700;font-size:14px;border:2px solid var(--ink);border-radius:50% 46% 52% 48%/48% 52% 46% 54%;background:#F2EDE2;}
+  .opt.right{background:#E4F2E0;border-color:var(--green);box-shadow:3px 3px 0 var(--green);}
+  .opt.right em{background:var(--green);color:#fff;}
+  .opt.wrong{background:#FFE4E1;border-color:var(--red);}
+  .feedback{margin-top:16px;border-radius:16px 160px 16px 160px/160px 16px 160px 16px;padding:13px 16px;display:none;
+    align-items:center;justify-content:space-between;gap:12px;border:2.5px solid;}
+  .feedback.show{display:flex;}
+  .feedback.ok{background:#E4F2E0;border-color:var(--green);}
+  .feedback.no{background:#FFE4E1;border-color:var(--red);}
+  .feedback b{font-size:15.5px;display:block;}
+  .feedback.ok b{color:#3E6E3E;} .feedback.no b{color:#B23A30;}
+  .feedback span{font-size:13px;color:#6E6558;}
+  /* ===== 家长中心 ===== */
+  .lockWrap{max-width:470px;margin:24px auto;padding:30px 26px 26px;text-align:center;}
+  .lockWrap .lico{font-size:52px;line-height:1;margin-bottom:6px;}
+  .pinRow{display:flex;gap:12px;justify-content:center;margin:18px 0 6px;}
+  .pinBox{width:54px;height:64px;border:2.5px solid var(--ink);border-radius:14px;background:#fff;
+    font-size:28px;text-align:center;font-weight:700;color:var(--ink);}
+  .pinBox.on{border-color:var(--red);box-shadow:inset 0 0 0 3px #FFECEA;}
+  .pinBox.bad{border-color:var(--red);background:#FFE4E1;animation:shake .3s;}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+  .keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;max-width:300px;margin:16px auto 0;}
+  .keypad button{border:2.5px solid var(--ink);background:#fff;font-size:21px;font-weight:700;padding:11px 0;
+    cursor:pointer;border-radius:50%;box-shadow:2px 2px 0 rgba(58,52,43,.16);}
+  .keypad button:hover{background:var(--yellow);}
+  .keypad button.act{background:var(--blue);color:#fff;}
+  .statRow{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;}
+  .statCard{background:#fff;border:2.5px solid var(--ink);border-radius:16px 200px 16px 200px/200px 16px 200px 16px;
+    padding:12px 15px;box-shadow:3px 3px 0 rgba(58,52,43,.12);}
+  .statCard b{display:block;font-size:27px;color:var(--red);line-height:1.2;}
+  .statCard span{font-size:13px;color:#8A8073;}
+  .statCard.blue b{color:var(--blue);} .statCard.green b{color:var(--green);} .statCard.orange b{color:var(--deeporange);}
+  .mrow{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed #DCD5C6;}
+  .mrow .nm{width:158px;flex:none;font-size:14.5px;font-weight:700;}
+  .mrow .bar{flex:1;min-width:80px;height:13px;border:2px solid var(--ink);border-radius:8px;background:#fff;overflow:hidden;}
+  .mrow .bar i{display:block;height:100%;transition:.3s;}
+  .mrow .pv{width:76px;flex:none;text-align:right;font-size:13.5px;font-weight:700;}
+  .weekChart{display:flex;align-items:flex-end;gap:9px;height:132px;padding:4px 2px 0;border-bottom:2.5px solid var(--ink);}
+  .weekChart .col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;}
+  .weekChart .cv{width:64%;min-height:3px;border:2px solid var(--ink);border-bottom:none;border-radius:7px 7px 0 0;
+    background:repeating-linear-gradient(45deg,var(--orange) 0 8px,var(--yellow) 8px 16px);}
+  .weekChart .cv.zero{background:#fff;border-color:#C9C2B4;height:3px!important;}
+  .weekChart .cl{font-size:12px;color:#8A8073;margin-top:6px;}
+  .priceRow{display:flex;align-items:center;gap:9px;padding:9px 0;border-bottom:1px dashed #DCD5C6;flex-wrap:wrap;}
+  .priceRow .pn{flex:1;min-width:150px;font-size:15px;font-weight:700;}
+  .priceRow .tip{font-size:12.5px;color:#8A8073;flex:none;}
+  .priceRow input{width:92px;}
+  .miniTag{display:inline-block;font-size:12px;padding:2px 9px;border:2px solid var(--ink);border-radius:20px;background:#EEF3FA;font-weight:700;}
+  .miniTag.rm{background:#FFE4E1;border-color:var(--red);color:#B23A30;}
+  .miniTag.pd{background:#FFF3D6;border-color:var(--orange);color:#8A5A0B;}
+  .miniTag.ok{background:#E4F2E0;border-color:var(--green);color:#3E6E3E;}
+  .warnTip{background:#FFF3D6;border:2.5px solid var(--orange);color:#8A5A0B;font-size:13.5px;
+    padding:9px 13px;border-radius:14px;line-height:1.7;}
+  .nbtn{border:2.5px solid var(--ink);background:var(--green);color:#fff;font-weight:700;font-size:15px;
+    padding:9px 22px;cursor:pointer;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;box-shadow:2.5px 2.5px 0 var(--ink);}
+  .nbtn:active{transform:translate(2px,2px);box-shadow:none;}
+  .result{text-align:center;padding:22px 0 10px;}
+  .result .num{font-size:46px;font-weight:700;color:var(--red);transform:rotate(-2deg);display:inline-block;}
+  .hidden{display:none;}
+  .view{display:none;} .view.show{display:block;}
+  .toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%) rotate(-1deg);background:var(--ink);color:#fff;
+    padding:12px 26px;font-size:16px;font-weight:700;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+    z-index:300;box-shadow:4px 4px 0 rgba(0,0,0,.2);opacity:0;transition:.25s;pointer-events:none;}
+  .toast.show{opacity:1;bottom:52px;}
+  /* ===== 平板/小屏适配 ===== */
+  @media (max-width:980px){
+    nav button{font-size:15px;padding:6px 11px;}
+    .brand{font-size:18px;}
+    .grid{grid-template-columns:repeat(2,1fr);}
+    .coachWrap{grid-template-columns:1fr;}
+    .badges{grid-template-columns:repeat(3,1fr);}
+    .opts{grid-template-columns:1fr;}
+    h1{font-size:23px;}
+    main{padding:20px 14px 60px;}
+  }
+  @media (max-width:640px){
+    .grid{grid-template-columns:1fr;}
+    .badges{grid-template-columns:repeat(2,1fr);}
+    .poster{width:100%;}
+    .stage{height:auto;padding-bottom:14px;}
+    .bcard{position:static!important;width:auto!important;margin:14px 16px;}
+    .uHub{position:static;transform:none;margin:16px auto 4px;}
+    .stage svg.links{display:none;}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><span class="logo"></span>数学冒险岛</div>
+  <nav>
+    <button class="active" data-view="map">知识地图</button>
+    <button data-view="games">闯关游戏</button>
+    <button data-view="wish">心愿兑换</button>
+    <button data-view="coach">AI 教练</button>
+    <button data-view="medals">我的勋章</button>
+  </nav>
+  <div class="right">
+    <span class="chipStat">🎯 积分 <b id="energy">0</b></span>
+    <span class="chipStat">🏆 勋章 <b id="medalCount">0</b></span>
+    <button class="meBtn" id="acctBtn" onclick="switchView('me')">👤 未登录 · 同步</button>
+    <button class="meBtn" style="background:var(--purple)" onclick="switchView('parent')">🔒 家长中心</button>
+  </div>
+</header>
+
+<main>
+  <section class="view show" id="view-map">
+    <h1><span class="handline">北师大版 · 六年级数学知识地图</span></h1>
+    <p class="sub">上册 7 个单元 + 下册 4 个单元 —— 点开任意单元：先看手绘知识地图，选难度再闯关，攒积分换心愿</p>
+    <div id="resumeBox"></div>
+    <div class="map">
+      <div class="map-inner" id="map">
+        <svg class="links" width="1150" height="660" viewBox="0 0 1150 660" fill="none"></svg>
+        <div class="hub"><b>六年级数学</b><span>北师大版 · 11 个单元</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="view-games">
+    <h1><span class="handline">闯关游戏</span></h1>
+    <p class="sub">每个单元三档难度，难度越高积分越多 —— 全对还会额外奖励</p>
+    <div class="grid" id="gameGrid"></div>
+  </section>
+
+  <section class="view" id="view-wish">
+    <h1><span class="handline">心愿兑换</span></h1>
+    <p class="sub">用闯关攒下的积分兑换心愿，兑换后生成一张“心愿券”，请爸爸妈妈确认兑现</p>
+    <div id="wishZone"></div>
+    <h1 style="font-size:22px;margin-top:28px"><span class="handline" style="border-color:var(--green)">我的心愿券</span></h1>
+    <div id="ticketZone" style="margin-top:14px"></div>
+  </section>
+
+  <section class="view" id="view-coach">
+    <h1><span class="handline">AI 学习教练</span></h1>
+    <p class="sub">根据你每次答题的对错自动算出掌握情况，先给你诊断，再量身出一组专属练习题</p>
+    <div class="coachWrap" id="coachZone"></div>
+  </section>
+
+  <section class="view" id="view-medals">
+    <h1><span class="handline">我的勋章</span></h1>
+    <p class="sub">学完整个册、达成里程碑，就能点亮勋章</p>
+    <div class="badges" id="badgeGrid"></div>
+  </section>
+
+  <section class="view" id="view-me">
+    <h1><span class="handline">我 / 跨设备同步</span></h1>
+    <p class="sub">换台电脑或平板也能接着学：把你的学习进度做成“学习码”，在另一台设备上粘贴即可继续</p>
+    <div class="grid" id="meZone"></div>
+  </section>
+
+  <section class="view" id="view-parent">
+    <h1><span class="handline">🔒 家长中心</span></h1>
+    <p class="sub">看看孩子学到了哪、哪些地方还薄弱；心愿的积分定价和兑现，都由爸爸妈妈说了算</p>
+    <div id="parentZone"></div>
+  </section>
+</main>
+
+<!-- 开机登录门（换设备 = 在这里“登录”） -->
+<div class="gate" id="gate">
+  <div class="gateCard">
+    <div class="gateLogo"></div>
+    <h2>🎒 欢迎来到数学冒险岛</h2>
+    <p class="gsub" id="gateSub">这台设备上还没有学习记录 —— 你是第一次来，还是在别的电脑 / 平板上学过啦？</p>
+    <div class="gateWays" id="gateWays">
+      <div class="gateWay" onclick="gatePick('new')">
+        <h4>🌱 我是新来的</h4>
+        <p>第一次开始，先取个名字，从第一单元出发</p>
+      </div>
+      <div class="gateWay" onclick="gatePick('old')">
+        <h4>🔑 我在别的设备上学过</h4>
+        <p>用学习码 / 备份文件 / 云同步把进度搬过来</p>
+      </div>
+    </div>
+    <div class="gateBody" id="gateBody"></div>
+    <div id="gateFoot"></div>
+  </div>
+</div>
+
+<!-- 单元知识海报 -->
+<div class="mask" id="posterMask"><div class="poster" id="posterBox"></div></div>
+<!-- 答题 -->
+<div class="mask" id="quizMask"><div class="quiz wob2" id="quizModal"></div></div>
+<!-- 通用弹窗 -->
+<div class="mask" id="modalMask"><div class="poster" id="modalBox" style="width:640px"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============ 手绘涂鸦图标 ============ */
+const DK={
+ circle:`<circle cx="30" cy="32" r="19" fill="none" stroke="#3A342B" stroke-width="2.5"/><line x1="30" y1="32" x2="46" y2="22" stroke="#E85A4F" stroke-width="2.5"/><circle cx="30" cy="32" r="2.6" fill="#3A342B"/>`,
+ ruler:`<rect x="10" y="24" width="40" height="15" rx="3" fill="#FFF2CC" stroke="#3A342B" stroke-width="2.5"/><line x1="18" y1="24" x2="18" y2="31" stroke="#3A342B" stroke-width="2"/><line x1="26" y1="24" x2="26" y2="31" stroke="#3A342B" stroke-width="2"/><line x1="34" y1="24" x2="34" y2="31" stroke="#3A342B" stroke-width="2"/><line x1="42" y1="24" x2="42" y2="31" stroke="#3A342B" stroke-width="2"/>`,
+ grid:`<rect x="14" y="16" width="32" height="32" fill="none" stroke="#3A342B" stroke-width="2.5"/><line x1="25" y1="16" x2="25" y2="48" stroke="#3A342B" stroke-width="1.6"/><line x1="36" y1="16" x2="36" y2="48" stroke="#3A342B" stroke-width="1.6"/><line x1="14" y1="27" x2="46" y2="27" stroke="#3A342B" stroke-width="1.6"/><line x1="14" y1="38" x2="46" y2="38" stroke="#3A342B" stroke-width="1.6"/><rect x="25" y="27" width="11" height="11" fill="#E85A4F" opacity=".55"/>`,
+ fan:`<path d="M30 42 L14 22 A22 22 0 0 1 46 22 Z" fill="#FDE8D8" stroke="#3A342B" stroke-width="2.5"/><line x1="30" y1="42" x2="30" y2="18" stroke="#E87B35" stroke-width="2"/>`,
+ eye:`<path d="M10 32 Q30 12 50 32 Q30 50 10 32 Z" fill="#EAF2FB" stroke="#3A342B" stroke-width="2.5"/><circle cx="30" cy="32" r="6.5" fill="#4E8FD0" stroke="#3A342B" stroke-width="2"/><circle cx="32" cy="30" r="1.8" fill="#fff"/>`,
+ pencil:`<path d="M14 46 L18 36 L40 14 L46 20 L24 42 Z" fill="#FFF2CC" stroke="#3A342B" stroke-width="2.5"/><line x1="36" y1="18" x2="42" y2="24" stroke="#3A342B" stroke-width="2"/>`,
+ swap:`<path d="M14 26 H38 M38 26 L32 20 M38 26 L32 32" stroke="#4E8FD0" stroke-width="2.8" fill="none" stroke-linecap="round"/><path d="M46 40 H22 M22 40 L28 34 M22 40 L28 46" stroke="#5CA35C" stroke-width="2.8" fill="none" stroke-linecap="round"/>`,
+ bars:`<rect x="14" y="30" width="9" height="18" fill="#4E8FD0" stroke="#3A342B" stroke-width="2"/><rect x="27" y="20" width="9" height="28" fill="#E85A4F" stroke="#3A342B" stroke-width="2"/><rect x="40" y="26" width="9" height="22" fill="#5CA35C" stroke="#3A342B" stroke-width="2"/><line x1="10" y1="49" x2="52" y2="49" stroke="#3A342B" stroke-width="2.5"/>`,
+ trend:`<polyline points="12,42 24,30 36,36 50,18" fill="none" stroke="#9B6BD3" stroke-width="2.8" stroke-linecap="round"/><circle cx="12" cy="42" r="2.6" fill="#9B6BD3"/><circle cx="24" cy="30" r="2.6" fill="#9B6BD3"/><circle cx="36" cy="36" r="2.6" fill="#9B6BD3"/><circle cx="50" cy="18" r="2.6" fill="#9B6BD3"/><line x1="10" y1="50" x2="52" y2="50" stroke="#3A342B" stroke-width="2.5"/>`,
+ choose:`<circle cx="30" cy="30" r="19" fill="#F3EAFB" stroke="#3A342B" stroke-width="2.5"/><path d="M30 30 L30 11 A19 19 0 0 1 49 30 Z" fill="#EE7BA7" stroke="#3A342B" stroke-width="2"/>`,
+ scale:`<line x1="30" y1="14" x2="30" y2="46" stroke="#3A342B" stroke-width="2.5"/><line x1="12" y1="20" x2="48" y2="20" stroke="#3A342B" stroke-width="2.5"/><path d="M4 34 A9 9 0 0 0 22 34 Z" fill="#FDE8D8" stroke="#3A342B" stroke-width="2.2"/><path d="M38 34 A9 9 0 0 0 56 34 Z" fill="#FDE8D8" stroke="#3A342B" stroke-width="2.2"/><circle cx="30" cy="14" r="3" fill="#3A342B"/>`,
+ calc:`<rect x="16" y="12" width="28" height="38" rx="4" fill="#EAF2FB" stroke="#3A342B" stroke-width="2.5"/><rect x="21" y="17" width="18" height="8" fill="#fff" stroke="#3A342B" stroke-width="1.8"/><circle cx="24" cy="33" r="2.4" fill="#3A342B"/><circle cx="30" cy="33" r="2.4" fill="#3A342B"/><circle cx="36" cy="33" r="2.4" fill="#3A342B"/><circle cx="24" cy="41" r="2.4" fill="#3A342B"/><circle cx="30" cy="41" r="2.4" fill="#E85A4F"/><circle cx="36" cy="41" r="2.4" fill="#3A342B"/>`,
+ minimize:`<path d="M10 24 H34 V44 Z" fill="#FDE8F0" stroke="#3A342B" stroke-width="2.5"/><path d="M36 16 H52 V32 Z" fill="#FDE8F0" stroke="#3A342B" stroke-width="2.5"/><line x1="30" y1="42" x2="42" y2="30" stroke="#EE7BA7" stroke-width="2.4"/>`,
+ bag:`<path d="M16 22 H44 L41 48 H19 Z" fill="#FFF2CC" stroke="#3A342B" stroke-width="2.5"/><path d="M24 22 V16 A6 6 0 0 1 36 16 V22" fill="none" stroke="#3A342B" stroke-width="2.5"/>`,
+ diff:`<rect x="12" y="30" width="14" height="18" fill="#EAF2FB" stroke="#3A342B" stroke-width="2.2"/><rect x="30" y="20" width="18" height="28" fill="#FDE8D8" stroke="#3A342B" stroke-width="2.2"/><text x="14" y="16" font-size="11" fill="#4E8FD0">乙</text><text x="38" y="16" font-size="11" fill="#E87B35">甲</text>`,
+ tag:`<path d="M14 26 L30 12 L48 12 L48 30 L32 46 Z" fill="#FDE8F0" stroke="#3A342B" stroke-width="2.5"/><circle cx="41" cy="19" r="3" fill="#fff" stroke="#3A342B" stroke-width="2"/>`,
+ coin:`<circle cx="30" cy="30" r="17" fill="#FFF2CC" stroke="#3A342B" stroke-width="2.5"/><text x="30" y="36" font-size="15" fill="#B26A00" text-anchor="middle" font-weight="bold">¥</text><path d="M46 14 L50 10 M50 18 L54 14" stroke="#E87B35" stroke-width="2.4" stroke-linecap="round"/>`,
+ cylinder:`<ellipse cx="30" cy="16" rx="15" ry="6" fill="#EAF2FB" stroke="#3A342B" stroke-width="2.2"/><path d="M15 16 V44 A15 6 0 0 0 45 44 V16" fill="none" stroke="#3A342B" stroke-width="2.2"/><ellipse cx="30" cy="44" rx="15" ry="6" fill="none" stroke="#3A342B" stroke-width="2.2"/>`,
+ box:`<path d="M12 22 L30 14 L48 22 L30 30 Z" fill="#EAF2FB" stroke="#3A342B" stroke-width="2.2"/><path d="M12 22 V40 L30 48 V30 Z" fill="#D9E7F5" stroke="#3A342B" stroke-width="2.2"/><path d="M48 22 V40 L30 48 V30 Z" fill="#C3D8EC" stroke="#3A342B" stroke-width="2.2"/>`,
+ cone:`<path d="M30 12 L46 42 H14 Z" fill="#FDE8D8" stroke="#3A342B" stroke-width="2.2"/><ellipse cx="30" cy="42" rx="16" ry="6" fill="#FDE8D8" stroke="#3A342B" stroke-width="2.2"/><path d="M30 42 L42 20" stroke="#E85A4F" stroke-width="2"/>`,
+ balance:`<path d="M14 26 H38 M38 26 L32 20 M38 26 L32 32" stroke="#4E8FD0" stroke-width="2.8" fill="none" stroke-linecap="round"/><path d="M46 40 H22 M22 40 L28 34 M22 40 L28 46" stroke="#5CA35C" stroke-width="2.8" fill="none" stroke-linecap="round"/><text x="10" y="54" font-size="11" fill="#7A7060">a:b = c:d</text>`,
+ solve:`<text x="14" y="34" font-size="20" fill="#3A342B" font-weight="bold">x=?</text><circle cx="30" cy="44" r="11" fill="#FFF2CC" stroke="#3A342B" stroke-width="2.2"/><path d="M25 44 L29 48 L37 39" fill="none" stroke="#5CA35C" stroke-width="2.6" stroke-linecap="round"/>`,
+ map:`<rect x="12" y="16" width="36" height="28" rx="3" fill="#EAF2FB" stroke="#3A342B" stroke-width="2.2"/><path d="M12 30 Q24 22 30 30 T48 30" fill="none" stroke="#9B6BD3" stroke-width="2" stroke-dasharray="4 3"/><line x1="18" y1="40" x2="26" y2="40" stroke="#3A342B" stroke-width="2"/><text x="28" y="43" font-size="9" fill="#7A7060">1:1000</text>`,
+ rotate:`<path d="M44 30 A14 14 0 1 1 30 16" fill="none" stroke="#F0A63A" stroke-width="3" stroke-linecap="round"/><path d="M30 16 L38 12 M30 16 L37 22" stroke="#F0A63A" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="30" cy="30" r="3" fill="#3A342B"/>`,
+ zoom:`<rect x="10" y="28" width="14" height="14" fill="#EAF2FB" stroke="#3A342B" stroke-width="2.2"/><rect x="32" y="14" width="20" height="20" fill="#FFF2CC" stroke="#3A342B" stroke-width="2.2"/><path d="M20 34 L34 24 M34 24 L28 22 M34 24 L32 30" stroke="#E87B35" stroke-width="2.4" fill="none" stroke-linecap="round"/>`,
+ up:`<polyline points="12,44 26,30 38,36 50,16" fill="none" stroke="#5CA35C" stroke-width="3" stroke-linecap="round"/><path d="M50 16 L42 16 M50 16 L50 24" stroke="#5CA35C" stroke-width="3" fill="none" stroke-linecap="round"/>`,
+ down:`<path d="M12 16 H20 M12 16 V24" stroke="#4E8FD0" stroke-width="3" fill="none" stroke-linecap="round"/><polyline points="12,18 24,30 36,24 50,44" fill="none" stroke="#4E8FD0" stroke-width="3" stroke-linecap="round"/>`,
+ judge:`<text x="10" y="34" font-size="13" fill="#3A342B" font-weight="bold">一定?</text><circle cx="41" cy="30" r="12" fill="#E4F2E0" stroke="#3A342B" stroke-width="2.2"/><path d="M36 30 L40 34 L47 26" fill="none" stroke="#5CA35C" stroke-width="2.6" stroke-linecap="round"/>`,
+};
+const dkSvg=(k,c)=>`<svg width="44" height="46" viewBox="0 0 60 60">${DK[k]||""}</svg>`;
+
+/* ============ 难度与积分规则 ============ */
+const DIFFS=[
+ {k:"easy",name:"轻松闯",icon:"🌱",color:"#5CA35C",per:10,bonus:30,desc:"直接套公式、认概念",tip:"先热身，把基础打牢"},
+ {k:"normal",name:"标准闯",icon:"🔥",color:"#F0A63A",per:15,bonus:60,desc:"拐个小弯、要动脑筋",tip:"再来一点点小挑战"},
+ {k:"hard",name:"挑战闯",icon:"👑",color:"#E85A4F",per:20,bonus:100,desc:"综合应用、易错陷阱",tip:"学霸模式，冲高分"},
+];
+const DK_KEY={easy:1,normal:2,hard:3};
+const diffObj=k=>DIFFS.find(d=>d.k===k);
+/* 题目最大难度序号 → 该档抽取范围 */
+function pickByDiff(u,k){
+  const max=DK_KEY[k];
+  let pool=u.q.filter(x=>x[4]<=max);
+  if(k==="hard")pool=u.q.filter(x=>x[4]>=2);
+  // 打乱后取最多 6 题（优先取该档上限的题）
+  pool=pool.slice().sort(()=>Math.random()-.5).sort((a,b)=>b[4]-a[4]);
+  return pool.slice(0,Math.min(6,pool.length));
+}
+function gainOf(list,k){
+  const d=diffObj(k);
+  return list.length*d.per+d.bonus;
+}
+
+/* ============ 北师大版数据（q:[题干, 正确项, 干扰1, 干扰2, 难度1-3, 分支序号]） ============ */
+const BOOKS=[
+ {id:"A",name:"六年级上册",color:"#4E8FD0",units:["u1","u2","u3","u4","u5","u6","u7"]},
+ {id:"B",name:"六年级下册",color:"#5CA35C",units:["u8","u9","u10","u11"]},
+];
+const UNITS=[
+ {id:"u1",no:"一",name:"圆",vol:"A",color:"#E85A4F",bg:"#FDECEA",game:"圆形建筑师",icon:"circle",
+  hub:"圆心定位置，半径定大小",
+  branches:[
+   {t:"圆的认识",icon:"circle",pts:["圆心 O 定位置","半径 r、直径 d 定大小","同圆里 d = 2r","半径有无数条，长度都相等"]},
+   {t:"圆的周长",icon:"ruler",pts:["C = πd","C = 2πr","π ≈ 3.14","半圆周长 = πr + 2r"]},
+   {t:"圆的面积",icon:"grid",pts:["S = πr²","把圆剪拼成近似长方形来推导","已知 d 或 C，先求出 r"]},
+   {t:"扇形",icon:"fan",pts:["由一段弧和两条半径围成","圆心角越大，扇形越大"]}],
+  warn:"周长和面积公式别用混！半圆的周长别忘了加上直径那一段。",
+  eg:"车轮直径 60cm，转一圈前进 3.14×60 ≈ 1.88 米。",
+  q:[["圆的半径是 4cm，直径是？","8cm","2cm","16cm",1,0],
+     ["决定圆的大小的是？","半径","圆心","对称轴",1,0],
+     ["π（圆周率）通常取几位小数来计算？","3.14","3.15","3.04",1,1],
+     ["r = 3 米，圆的周长是？（π 取 3.14）","18.84 米","9.42 米","28.26 米",2,1],
+     ["d = 10 米，圆的面积是？（π 取 3.14）","78.5 平方米","31.4 平方米","314 平方米",2,2],
+     ["把圆剪拼成近似长方形，长方形的宽相当于圆的？","半径","直径","周长的一半",2,2],
+     ["一个半圆的周长是？","πr + 2r","πr","2πr",3,1],
+     ["圆的半径扩大到原来的 2 倍，面积扩大到原来的？","4 倍","2 倍","8 倍",3,2],
+     ["一个圆的周长是 12.56 厘米，它的面积是？（π 取 3.14）","12.56 平方厘米","6.28 平方厘米","25.12 平方厘米",3,2]]},
+
+ {id:"u2",no:"二",name:"分数混合运算",vol:"A",color:"#F0A63A",bg:"#FEF3E0",game:"分数运算工坊",icon:"calc",
+  hub:"先乘除后加减，运算律来帮忙",
+  branches:[
+   {t:"运算顺序",icon:"bars",pts:["先乘除，后加减","有括号先算括号里面","同级运算从左往右"]},
+   {t:"简便计算",icon:"calc",pts:["交换律 a×b = b×a","结合律 (a×b)×c = a×(b×c)","分配律 a×(b+c) = a×b + a×c"]},
+   {t:"解决实际问题",icon:"bag",pts:["先找单位“1”","求一个数的几分之几 → 用乘法","剩余问题先算用去多少"]}],
+  warn:"乘法分配律最容易丢分：a×(b+c) 别漏乘其中一个！也别把“1/4”和“1/4 千克”搞混。",
+  eg:"一桶油 10 千克，用去 1/4 和用去 1/4 千克，是完全不同的两件事！",
+  q:[["1/2 + 1/3 = ？","5/6","2/5","1/5",1,0],
+     ["分数混合运算的顺序是？","先乘除后加减","先加减后乘除","从右往左算",1,0],
+     ["5 × (1/5 + 1/3) = ？","8/3","1/3","2",1,1],
+     ["(1/4 + 1/4) × 8 = ？","4","1","2",2,0],
+     ["一根绳 4/5 米，用去它的 1/2，剩下？","2/5 米","1/10 米","3/10 米",2,2],
+     ["2/3 ÷ 4 = ？","1/6","8/3","3/8",2,0],
+     ["一桶油 20 千克，先用去 1/4，再用去 1/4 千克，还剩？","14.75 千克","10 千克","5 千克",3,2],
+     ["计算 4/7 × 3/5 + 3/7 × 3/5，最简便的算法是？","(4/7 + 3/7) × 3/5","4/7 × 6/5","先算 4/7 × 3/7",3,1],
+     ["甲数是 24，乙数比甲数少 1/6，乙数是？","20","4","16",3,2]]},
+
+ {id:"u3",no:"三",name:"观察物体",vol:"A",color:"#4E8FD0",bg:"#EAF2FB",game:"观察小侦探",icon:"eye",
+  hub:"换个方向看，形状大不同",
+  branches:[
+   {t:"观察方法",icon:"eye",pts:["正面、上面、左面三个方向","一个方向最多看到 3 个面","先定方向，再数方块"]},
+   {t:"画出形状图",icon:"pencil",pts:["数出每一列正方形的个数","按方向画出平面图形","还原立体图要分层想象"]}],
+  warn:"从上面看时，别把“前后排”看成一排！",
+  eg:"从上往下看教学楼，看到的是屋顶的平面形状。",
+  q:[["从一个方向观察立体图形，最多看到几个面？","3 个","1 个","6 个",1,0],
+     ["从上面观察又叫？","俯视图","主视图","左视图",1,0],
+     ["从不同方向观察同一物体，看到的形状？","可能不同","一定相同","一定不同",1,0],
+     ["画“从正面看”的形状图，关键是先数？","每列正方形的个数","方块的颜色","方块的总个数",2,1],
+     ["从正面观察一个物体，看到的是它的？","长和高","长和宽","宽和高",2,0],
+     ["要确定一个立体图形的形状，至少要观察几个方向？","三个方向（正、上、左）","一个方向","两个方向",2,0],
+     ["小明站的位置越高，看到的范围就？","越大","越小","不变",3,0],
+     ["拍照时的“俯拍”相当于从哪个方向观察？","上面","正面","左面",3,0],
+     ["一个正方体无论从哪个方向看，看到的形状都是？","正方形","长方形","三角形",3,1]]},
+
+ {id:"u4",no:"四",name:"百分数",vol:"A",color:"#5CA35C",bg:"#EAF4EA",game:"百数快闪店",icon:"choose",
+  hub:"分母是 100 的分数",
+  branches:[
+   {t:"百分数的意义",icon:"choose",pts:["表示一个数是另一个数的百分之几","本质是分母为 100 的分数","只表示倍比关系，不带单位"]},
+   {t:"互化方法",icon:"swap",pts:["小数→百分数：小数点右移两位加 %","分数→百分数：先化成小数","百分数→分数：写成分母 100 再约分"]},
+   {t:"求百分率",icon:"bars",pts:["A 是 B 的百分之几 = A÷B","结果再乘 100%","常见：合格率、出勤率"]}],
+  warn:"百分数后面不能带单位名称！",
+  eg:"全班 50 人，20 人戴眼镜：20÷50 = 40%。",
+  q:[["0.35 写成百分数是？","35%","3.5%","350%",1,1],
+     ["3/4 写成百分数是？","75%","34%","43%",1,1],
+     ["下面哪个说法正确？","百分数不带单位","百分数可以带单位","百分数一定要约分",1,0],
+     ["50 人中 20 人戴眼镜，占百分之几？","40%","20%","50%",2,2],
+     ["45% 化成分数是？","9/20","45/1000","4/5",2,1],
+     ["0.8% 化成小数是？","0.008","0.8","0.08",2,1],
+     ["合格率最多能达到？","100%","99%","不确定",3,2],
+     ["一件商品先提价 10%，再降价 10%，现价与原价相比？","降低了","提高了","不变",3,2],
+     ["六年级有 200 人，今天出勤 194 人，出勤率是？","97%","94%","3%",3,2]]},
+
+ {id:"u5",no:"五",name:"数据处理",vol:"A",color:"#9B6BD3",bg:"#F3EAFB",game:"数据图表师",icon:"bars",
+  hub:"选对统计图，数据才说话",
+  branches:[
+   {t:"复式条形统计图",icon:"bars",pts:["两组数据画在同一张图上","必须有图例区分","比较多少一目了然"]},
+   {t:"复式折线统计图",icon:"trend",pts:["看两组数据的变化趋势","两条线用图例区分","先描点，再连线"]},
+   {t:"统计图的选择",icon:"choose",pts:["比多少 → 条形统计图","看变化 → 折线统计图","看占比 → 扇形统计图"]}],
+  warn:"复式统计图别忘了画图例，否则分不清两组数据！",
+  eg:"比较一班和二班每周的阅读量，用复式条形统计图最清楚。",
+  q:[["比较两组数据的多少，最好用？","复式条形统计图","复式折线统计图","统计表",1,0],
+     ["图例的作用是？","区分不同组的数据","让图更漂亮","用来计算平均数",1,0],
+     ["看两组气温的变化趋势，用？","复式折线统计图","复式条形统计图","扇形统计图",1,1],
+     ["表示各部分占总量的百分比，用？","扇形统计图","条形统计图","折线统计图",2,2],
+     ["想看出小明 1-6 年级身高的增长情况，用？","折线统计图","条形统计图","扇形统计图",2,1],
+     ["复式统计图与单式统计图最大的区别是？","有两组以上数据并配图例","颜色更多","数字更大",2,0],
+     ["想知道全班同学最喜欢的运动占多少份额，选？","扇形统计图","折线统计图","复式条形统计图",3,2],
+     ["折线统计图上点越高，表示数量？","越大","越小","和时间有关",3,1],
+     ["制作统计图的第一步应该是？","收集并整理数据","先选颜色","先画格子",3,2]]},
+
+ {id:"u6",no:"六",name:"比的认识",vol:"A",color:"#EE7BA7",bg:"#FDE8F0",game:"比例调配师",icon:"scale",
+  hub:"两个数相除，又叫两个数的比",
+  branches:[
+   {t:"比的意义",icon:"scale",pts:["两个数相除又叫两个数的比","前项 ÷ 后项 = 比值","比与除法、分数是相通的"]},
+   {t:"求比值",icon:"calc",pts:["比值 = 前项 ÷ 后项","结果是一个数（可以是分数）","3:2 的比值是 1.5"]},
+   {t:"化简比",icon:"minimize",pts:["依据：比的基本性质","前项后项同乘或同除一个数（0 除外）","化成最简整数比"]}],
+  warn:"比值是一个数，化简比的结果还是一个比，别搞混！",
+  eg:"果汁配方 6:4 和 3:2 一样浓，因为比值相同。",
+  q:[["6:4 化成最简整数比是？","3:2","6:4","2:3",1,2],
+     ["3:2 的比值是？","1.5","2:3","0.67",1,1],
+     ["比的后项可以是 0 吗？","不可以","可以","有时可以",1,0],
+     ["0.5:2 化简后是？","1:4","2:4","4:1",2,2],
+     ["比的前项相当于除法里的？","被除数","除数","商",2,0],
+     ["化简比 3/4 : 1/2 的结果是？","3:2","3:4","2:3",2,2],
+     ["甲数与乙数的比是 4:5，乙数是 20，甲数是？","16","25","4",3,0],
+     ["一个三角形三个内角度数的比是 1:2:3，它是？","直角三角形","锐角三角形","钝角三角形",3,0],
+     ["糖水中糖与水的比是 1:9，糖占糖水的？","1/10","1/9","1/11",3,0]]},
+
+ {id:"u7",no:"七",name:"百分数的应用",vol:"A",color:"#E87B35",bg:"#FDE8D8",game:"商店大亨",icon:"tag",
+  hub:"折扣、成数、税率、利率都用它",
+  branches:[
+   {t:"多（少）百分之几",icon:"diff",pts:["相差数 ÷ 单位“1”的量","“比谁”就除以谁","结果化成百分数"]},
+   {t:"折扣与成数",icon:"tag",pts:["八折 = 原价 × 80%","几成就是十分之几","现价 = 原价 × 折扣"]},
+   {t:"税率与利率",icon:"coin",pts:["利息 = 本金 × 利率 × 存期","应纳税额 × 税率 = 纳税金额","利息记得乘存期！"]}],
+  warn:"甲比乙多 25%，乙比甲可不是少 25%，是少 20%！",
+  eg:"200 元的书打七折：200×70% = 140 元。",
+  q:[["“八折”表示按原价的多少出售？","80%","8%","180%",1,1],
+     ["200 元的商品打七折，售价是？","140 元","70 元","120 元",1,1],
+     ["“三成”写成百分数是？","30%","3%","0.3%",1,1],
+     ["存 1000 元，年利率 2%，一年的利息是？","20 元","200 元","2 元",2,2],
+     ["甲比乙多 25%，乙比甲少？","20%","25%","15%",2,0],
+     ["原价 80 元的书包打九折后是？","72 元","8 元","70 元",2,1],
+     ["一件商品先涨价 20%，再打八折，现价是原价的？","96%","100%","88%",3,1],
+     ["应纳税收入 5000 元，税率 3%，应缴税多少？","150 元","15 元","500 元",3,2],
+     ["把 5000 元存入银行半年，年利率 1.5%，到期利息是？","37.5 元","75 元","150 元",3,2]]},
+
+ {id:"u8",no:"一",name:"圆柱与圆锥",vol:"B",color:"#5CA35C",bg:"#EAF4EA",game:"立体仓库王",icon:"cylinder",
+  hub:"圆柱 V=Sh，圆锥是它的三分之一",
+  branches:[
+   {t:"认识圆柱和圆锥",icon:"cylinder",pts:["圆柱：3 个面，侧面是曲面","圆柱侧面展开是长方形","圆锥：一个顶点、一个底面"]},
+   {t:"圆柱的表面积和体积",icon:"box",pts:["侧面积 = 底面周长 × 高","表面积 = 侧面积 + 2 个底面积","V = Sh = πr²h"]},
+   {t:"圆锥的体积",icon:"cone",pts:["V = 1/3 Sh","等底等高：圆锥是圆柱的 1/3","圆柱是等底等高圆锥的 3 倍"]}],
+  warn:"圆锥体积公式里的 1/3 千万别丢！",
+  eg:"等底等高的圆锥杯，倒满 3 杯才能装满圆柱杯。",
+  q:[["圆柱的侧面展开后是？","长方形或正方形","圆形","三角形",1,0],
+     ["圆柱的体积公式是？","V = Sh","V = 1/3 Sh","V = 2πr",1,1],
+     ["等底等高时，圆锥体积是圆柱的？","1/3","3 倍","1/2",1,2],
+     ["r = 2，h = 5，圆柱体积是？（π 取 3.14）","62.8","31.4","15.7",2,1],
+     ["圆锥的体积公式是？","V = 1/3 Sh","V = Sh","V = 3Sh",2,2],
+     ["圆柱的底面半径扩大到原来的 2 倍、高不变，体积扩大到？","4 倍","2 倍","8 倍",2,1],
+     ["一个圆柱侧面积 62.8 平方厘米，高 5 厘米，底面周长是？","12.56 厘米","31.4 厘米","314 厘米",3,1],
+     ["一个圆锥体积是 24 立方厘米，与它等底等高的圆柱体积是？","72 立方厘米","8 立方厘米","12 立方厘米",3,2],
+     ["把一根圆柱形木料削成一个最大的圆锥，削去部分占圆柱的？","2/3","1/3","1/2",3,2]]},
+
+ {id:"u9",no:"二",name:"比例",vol:"B",color:"#4E8FD0",bg:"#EAF2FB",game:"地图比例尺",icon:"map",
+  hub:"内项积 = 外项积",
+  branches:[
+   {t:"比例的意义与性质",icon:"balance",pts:["表示两个比相等的式子叫比例","基本性质：内项积 = 外项积","判断能否组成比例看比值"]},
+   {t:"解比例",icon:"solve",pts:["根据内项积 = 外项积","把含 x 的项放在一边","解方程求出 x"]},
+   {t:"比例尺",icon:"map",pts:["比例尺 = 图上距离 : 实际距离","单位要先统一再计算","比值大于 1 是放大，小于 1 是缩小"]}],
+  warn:"用比例尺换算时，单位要先统一成厘米再算！",
+  eg:"比例尺 1:1000 的地图上，5 厘米就是实际 50 米。",
+  q:[["比例的基本性质是？","内项积等于外项积","内项和等于外项和","前项和等于后项和",1,0],
+     ["4:6 和 6:9 能组成比例吗？","能，比值都是 2/3","不能","无法判断",1,0],
+     ["比例尺表示的是？","图上距离 : 实际距离","实际距离 : 时间","宽度 : 高度",1,2],
+     ["2:3 = x:12，x = ？","8","9","6",2,1],
+     ["比例尺 1:1000，图上 5 厘米表示实际？","50 米","500 米","5 米",2,2],
+     ["解比例 3:x = 6:8，x = ？","4","6","2",2,1],
+     ["一幅地图比例尺 1:2000000，图上 4 厘米表示实际多少千米？","80 千米","8 千米","800 千米",3,2],
+     ["比例里两个外项互为倒数，其中一个内项是 2/3，另一个内项是？","3/2","2/3","1",3,0],
+     ["一间教室长 8 米，画在图纸上是 4 厘米，比例尺是？","1:200","1:2","200:1",3,2]]},
+
+ {id:"u10",no:"三",name:"图形的运动",vol:"B",color:"#F0A63A",bg:"#FEF3E0",game:"旋转游乐园",icon:"rotate",
+  hub:"旋转三要素 + 放大缩小",
+  branches:[
+   {t:"旋转",icon:"rotate",pts:["三要素：旋转中心、方向、角度","方向分顺时针 / 逆时针","对应点转到对应位置"]},
+   {t:"放大与缩小",icon:"zoom",pts:["按给定的比放大或缩小","边长扩大或缩小相同的倍数","形状不变，大小改变"]}],
+  warn:"图形放大到原来的 2 倍，是边长扩大 2 倍，不是面积！",
+  eg:"钟表指针绕轴心顺时针旋转；照片缩小后放到手机屏上。",
+  q:[["图形旋转的三要素是？","中心、方向、角度","边、角、顶点","大小、颜色、位置",1,0],
+     ["钟表指针旋转的方向是？","顺时针","逆时针","不一定",1,0],
+     ["放大后的图形和原图相比？","形状不变，大小变了","完全一样","形状变了",1,1],
+     ["把图形按 2:1 放大，边长？","扩大到原来的 2 倍","扩大到原来的 4 倍","不变",2,1],
+     ["时针从 3 走到 6，旋转了多少度？","90°","60°","180°",2,0],
+     ["把一个长方形按 1:3 缩小，面积变成原来的？","1/9","1/3","3 倍",2,1],
+     ["图形绕点 O 旋转后，对应点到 O 的距离？","不变","变大","变小",3,0],
+     ["一个图形绕一点旋转 360° 后？","与原图完全重合","转到对面","变大一倍",3,0],
+     ["直角三角形两直角边按 3:1 放大后是 9cm 和 12cm，原来的斜边是？","5 厘米","15 厘米","20 厘米",3,1]]},
+
+ {id:"u11",no:"四",name:"正比例与反比例",vol:"B",color:"#9B6BD3",bg:"#F3EAFB",game:"变与不变",icon:"judge",
+  hub:"商一定成正比例，积一定成反比例",
+  branches:[
+   {t:"正比例",icon:"up",pts:["两种相关联的量，比值（商）一定","y ÷ x = k（一定）","图像是一条直线"]},
+   {t:"反比例",icon:"down",pts:["乘积一定","x × y = k（一定）","一个量变大，另一个量变小"]},
+   {t:"判断与应用",icon:"judge",pts:["先找不变的量","商一定 → 成正比例","积一定 → 成反比例"]}],
+  warn:"先找不变的量：商一定成正比例，积一定成反比例！",
+  eg:"速度一定，路程和时间成正比例；总路程一定，速度和时间成反比例。",
+  q:[["速度一定，路程与时间成？","正比例","反比例","不成比例",1,0],
+     ["路程一定，速度与时间成？","反比例","正比例","不成比例",1,1],
+     ["正比例关系的图像是？","一条直线","一条曲线","折线",1,0],
+     ["圆柱体积一定，底面积和高成？","反比例","正比例","不成比例",2,1],
+     ["判断正反比例，第一步要先？","找不变的量","算最大公因数","画统计图",2,2],
+     ["单价一定，总价和数量成？","正比例","反比例","不成比例",2,0],
+     ["圆的周长和半径成？","正比例","反比例","不成比例",3,0],
+     ["长方形的面积一定，它的长和宽成？","反比例","正比例","不成比例",3,1],
+     ["正方形的边长和它的面积？","不成比例","成正比例","成反比例",3,2]]},
+];
+const byId=id=>UNITS.find(u=>u.id===id);
+const bookOf=u=>BOOKS.find(b=>b.id===u.vol);
+const MILESTONES=[
+ {name:"初来乍到",need:1,icon:"🚀",bg:"#EAF2FB",desc:"完成第 1 个单元"},
+ {name:"渐入佳境",need:4,icon:"⚡",bg:"#FEF3E0",desc:"完成 4 个单元"},
+ {name:"上册通关",need:"A",icon:"🎓",bg:"#EAF2FB",desc:"学完六年级上册全部单元"},
+ {name:"下册通关",need:"B",icon:"🏔️",bg:"#EAF4EA",desc:"学完六年级下册全部单元"},
+ {name:"全岛通关",need:11,icon:"👑",bg:"#FFF2CC",desc:"完成全部 11 个单元"},
+];
+/* 官方建议定价表（1 次标准闯关 ≈ 150 积分 ≈ 15 分钟） */
+const WISH_PRESET=[
+ {n:"看 10 分钟手机",c:300,ic:"📱",about:"约 2 次标准闯关 · 30 分钟"},
+ {n:"挑一包零食",c:400,ic:"🍪",about:"约 3 次标准闯关 · 40 分钟"},
+ {n:"看 15 分钟动画片",c:500,ic:"📺",about:"约 3 次标准闯关 · 50 分钟"},
+ {n:"晚睡 20 分钟",c:600,ic:"🌙",about:"约 4 次标准闯关 · 1 小时"},
+ {n:"周末去公园玩",c:900,ic:"🎡",about:"约 6 次标准闯关 · 1.5 小时"},
+ {n:"买一本想看的书",c:1200,ic:"📚",about:"约 8 次标准闯关 · 2 小时"},
+ {n:"周末多玩 30 分钟游戏",c:1600,ic:"🎮",about:"约 11 次标准闯关 · 3 小时"},
+ {n:"和爸爸妈妈去游乐场",c:2400,ic:"🎢",about:"约 16 次标准闯关 · 5 小时"},
+];
+/* 定价换算：给家长改价时看的参考 */
+const PRICE_RULE="1 次标准闯关 ≈ 150 积分（6 题 × 15 分 + 全对奖励 60 分）≈ 15 分钟";
+function priceTip(c){
+  const times=Math.round(c/150*10)/10, min=Math.round(c/150*15);
+  return `≈ ${times} 次标准闯关 · ${min} 分钟`;
+}
+
+/* ============ 状态 ============ */
+const DEF_WISHES=WISH_PRESET.map((w,i)=>({id:"w"+i,n:w.n,c:w.c,ic:w.ic}));
+const RAW_SAVE=localStorage.getItem("math-island-bsd");
+let S=JSON.parse(RAW_SAVE||"null")||{};
+const IS_NEW_DEVICE=!RAW_SAVE;                    /* 这台设备从来没登录过 → 弹登录门 */
+/* 只存在本设备的资料（不跟着学习码同步）：设备昵称 + 上次同步时间 */
+const DEV_KEY="math-island-device";
+let DEV=JSON.parse(localStorage.getItem(DEV_KEY)||"null")||{tag:"",since:"",lastSync:""};
+function saveDev(){localStorage.setItem(DEV_KEY,JSON.stringify(DEV));}
+const APP_URL="https://songwenli9527.github.io/math-island/";
+function devSince(){if(!DEV.since){DEV.since=today();saveDev();}return DEV.since;}
+function initS(){
+  const d={ver:3,name:"",energy:0,done:[],badges:[],master:{},log:[],wishes:DEF_WISHES.slice(0,4),
+           tickets:[],last:null,streak:0,lastDay:"",llm:{key:"",base:"https://api.deepseek.com/v1",model:"deepseek-chat"},
+           parent:{pin:"",q:"",a:"",approve:true,cap:0,cloud:{url:"",token:""}},gain:{}};
+  S=Object.assign(d,S);
+  S.master=S.master||{}; S.log=S.log||[]; S.wishes=S.wishes||DEF_WISHES.slice(0,4);
+  S.tickets=S.tickets||[]; S.badges=S.badges||[]; S.done=S.done||[]; S.llm=S.llm||d.llm;
+  S.parent=S.parent||d.parent; S.parent.cloud=S.parent.cloud||{url:"",token:""};
+  S.gain=S.gain||{};
+}
+initS();
+const $=s=>document.querySelector(s);
+function save(){localStorage.setItem("math-island-bsd",JSON.stringify(S));render();}
+const isDone=id=>S.done.includes(id);
+function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(window._tt);window._tt=setTimeout(()=>t.classList.remove("show"),2200);}
+function today(){return new Date().toISOString().slice(0,10);}
+/* 简易哈希：家长密码与找回答案不存明文 */
+function H(s){let h=5381;s=String(s);for(let i=0;i<s.length;i++)h=((h<<5)+h+s.charCodeAt(i))>>>0;return h.toString(36)+"-"+s.length;}
+/* 记账：每天获得的积分（家长中心画趋势图用） */
+function addGain(n){
+  const td=today();
+  S.gain[td]=(S.gain[td]||0)+n;
+  const keys=Object.keys(S.gain).sort();
+  if(keys.length>30)keys.slice(0,keys.length-30).forEach(k=>delete S.gain[k]);
+}
+
+/* ============ 掌握度（越近的答题权重越高） ============ */
+function mastery(uid){
+  const rec=S.log.filter(x=>x.u===uid);
+  if(!rec.length)return {p:0,n:0};
+  let w=0,ws=0;
+  rec.forEach((x,i)=>{const wt=i+1;w+=wt*(x.ok?1:0);ws+=wt;});
+  return {p:ws?w/ws:0,n:rec.length};
+}
+function branchStats(uid){
+  const u=byId(uid), rec=S.log.filter(x=>x.u===uid);
+  return u.branches.map((b,i)=>{
+    const rs=rec.filter(x=>x.b===i);
+    const rt=rs.reduce((s,x)=>s+(x.ok?1:0),0);
+    return {name:b.t,i,n:rs.length,p:rs.length?rt/rs.length:0};
+  });
+}
+function recommendDiff(uid){
+  const m=mastery(uid);
+  if(m.n===0)return "easy";
+  if(m.n<3)return m.p>=.6?"normal":"easy";
+  if(m.p>=.85)return "hard";
+  if(m.p>=.6)return "normal";
+  return "easy";
+}
+/* 诊断：找薄弱知识点 */
+function diagnose(){
+  const got=S.log.length;
+  let weak=[],strong=[];
+  UNITS.forEach(u=>{
+    branchStats(u.id).forEach(b=>{
+      if(b.n>=2&&b.p<.6)weak.push({u:u.name,b:b.name,p:b.p,uid:u.id,bi:b.i});
+      if(b.n>=2&&b.p>=.85)strong.push({u:u.name,b:b.name,p:b.p});
+    });
+  });
+  return {got,weak:weak.sort((a,b)=>a.p-b.p).slice(0,4),strong:strong.slice(0,4)};
+}
+
+/* ============ 主地图 ============ */
+function buildMap(){
+  const inner=$("#map"), svg=inner.querySelector(".links");
+  const HX=575, HY=290;
+  const posA=[[52,60],[52,148],[52,236],[52,324],[52,412],[52,500],[52,560]];
+  const posB=[[900,90],[900,210],[900,330],[900,450]];
+  let paths="",html="";
+  BOOKS.forEach((b,bi)=>{
+    const bx=bi===0?230:920, tagX=bi===0?96:930;
+    html+=`<div class="bookTag" style="left:${tagX}px;top:2px;background:${b.color}">${b.name}</div>`;
+    paths+=`<path d="M${bi===0?HX-100:HX+100} ${HY} C ${bi===0?HX-260:HX+260} ${HY-40} ${bx} 60 ${bx} 30" stroke="${b.color}" stroke-width="3" fill="none" opacity=".7" stroke-linecap="round"/>`;
+    b.units.forEach((uid,i)=>{
+      const u=byId(uid), p=(bi===0?posA:posB)[i], my=p[1]+44, m=mastery(uid);
+      paths+=`<path d="M${bi===0?HX-105:HX+105} ${HY} C ${bi===0?HX-200:HX+200} ${HY} ${bi===0?p[0]+205:p[0]-30} ${my-20} ${bi===0?p[0]+178:p[0]} ${my}" stroke="${u.color}" stroke-width="2.4" fill="none" opacity=".65" stroke-linecap="round"/>`;
+      html+=`<div class="unit wob ${isDone(uid)?'done':''}" style="left:${p[0]}px;top:${p[1]}px;background:${u.bg}" onclick="openPoster('${uid}')">
+        <span class="no" style="background:${u.color}">${u.vol==="A"?"上":"下"}${u.no}</span>
+        <b>${u.name}</b><i>${u.branches.length} 个分支 · ${u.q.length} 道题库</i>
+        <div class="mbar"><i style="width:${Math.round(m.p*100)}%;background:${m.p>=.85?"#5CA35C":m.p>=.6?"#F0A63A":"#E85A4F"}"></i></div></div>`;
+    });
+  });
+  svg.innerHTML=paths;
+  inner.querySelectorAll(".unit").forEach(n=>n.remove());
+  inner.insertAdjacentHTML("beforeend",html);
+}
+/* 继续上次学习 */
+function buildResume(){
+  const box=$("#resumeBox");
+  const todayDone=S.log.filter(x=>x.t.slice(0,10)===today()).length;
+  if(!S.log.length){
+    box.innerHTML=`<div class="resume"><span class="ico">🌈</span><div class="txt"><b>欢迎来到数学冒险岛${S.name?"，"+S.name:""}！</b>
+      <p>先从“上册第一单元 · 圆”开始，建议用「轻松闯」热身，答完全对就能点亮单元</p></div>
+      <button class="midBtn" onclick="openPoster('u1')">开始第一关 →</button></div>`;
+    return;
+  }
+  const last=S.log[S.log.length-1], u=byId(last.u);
+  const nextDiff=recommendDiff(last.u), d=diffObj(nextDiff), m=mastery(last.u);
+  box.innerHTML=`<div class="resume"><span class="ico">📍</span><div class="txt"><b>继续上次：${bookOf(u).name} · ${u.name}</b>
+    <p>上次答${last.ok?"对":"错"}了一道题 · 本单元掌握度 ${Math.round(m.p*100)}% · AI 建议难度「${d.name}」 · 今天已练 ${todayDone} 题</p></div>
+    <button class="midBtn" onclick="startQuiz('${last.u}','${nextDiff}')">接着练 →</button></div>`;
+}
+/* ============ 单元知识海报 ============ */
+const POSTS={
+ 4:[[16,96],[16,300],[668,96],[668,300]],
+ 3:[[16,110],[16,318],[668,200]],
+ 2:[[16,170],[668,170]],
+ 5:[[16,80],[16,290],[668,80],[668,290],[342,386]],
+};
+let POSTER_ID=null, CUR_DIFF="normal";
+function openPoster(id){
+  POSTER_ID=id; CUR_DIFF=recommendDiff(id);
+  const u=byId(id), bk=bookOf(u), posts=POSTS[u.branches.length]||POSTS[4];
+  let cards="",lines="";
+  const HXc=495, HYc=205;
+  const bs=branchStats(id);
+  u.branches.forEach((br,i)=>{
+    const p=posts[i], cx=p[0]+160, cy=p[1]+60, left=p[0]<400;
+    lines+=`<path d="M${left?HXc-80:HXc+80} ${HYc} C ${left?HXc-190:HXc+190} ${HYc} ${left?cx+150:cx-150} ${cy} ${left?cx+152:cx-152} ${cy}" stroke="${u.color}" stroke-width="2.6" fill="none" opacity=".55" stroke-linecap="round"/>`;
+    const st=bs[i];
+    cards+=`<div class="bcard wob ${i%2?"wob2":""} tape" style="left:${p[0]}px;top:${p[1]}px;color:${u.color};border-color:${u.color}">
+      <span class="no">${i+1}</span>
+      <h4 style="color:${u.color}">${dkSvg(br.icon)}${br.t}${st.n?`<span style="font-size:12px;margin-left:auto;color:${st.p>=.85?"#5CA35C":st.p>=.6?"#F0A63A":"#E85A4F"}">${Math.round(st.p*100)}%</span>`:""}</h4>
+      <ul>${br.pts.map(pt=>`<li>${pt}</li>`).join("")}</ul></div>`;
+  });
+  $("#posterBox").innerHTML=`
+    <button class="closeX" onclick="closePoster()">✕</button>
+    <div class="p-head">
+      <span class="p-stars" style="left:70px;top:26px;transform:rotate(-12deg)">⭐</span>
+      <span class="p-stars" style="right:80px;top:52px;transform:rotate(10deg)">✨</span>
+      <span class="p-stars" style="right:170px;top:14px;transform:rotate(-6deg)">🖍️</span>
+      <div><span class="p-vol" style="background:${bk.color}">北师大版 · ${bk.name}</span></div>
+      <div class="p-title">第<span style="color:${u.color}">${u.no}</span>单元 · <em>${u.name}</em> 思维导图</div>
+    </div>
+    <div class="stage">
+      <svg class="links" width="100%" height="100%" viewBox="0 0 1020 470" fill="none">${lines}</svg>
+      <div class="uHub" style="background:${u.color}"><b>${u.name}</b><span>${u.hub}</span></div>
+      ${cards}
+    </div>
+    <div class="p-foot">
+      <div class="warnBox"><b>⚠️ 易错提醒：</b>${u.warn}</div>
+      <div class="egBox"><b>🍭 生活里的数学：</b>${u.eg}</div>
+    </div>
+    <div class="diffZone">
+      <p style="font-size:15px;color:#7A7060;margin-bottom:10px">先选难度 —— 越难的题目，积分越多</p>
+      <div class="diffRow" id="diffRow">${DIFFS.map(d=>{
+        const list=pickByDiff(u,d.k), g=gainOf(list,d.k);
+        return `<div class="diffCard wob ${d.k===CUR_DIFF?"sel":""}" id="dc-${d.k}" onclick="selDiff('${d.k}')">
+          <h5><span>${d.icon}</span>${d.name}<span style="font-size:12px;color:#fff;background:${d.color};padding:2px 8px;border:1.8px solid var(--ink);border-radius:9px">${list.length} 题</span></h5>
+          <div class="coin">每题 ${d.per} 分 · 全对再奖 ${d.bonus} 分<br>满分通关可得 <b style="color:#B2781B">${g}</b> 分</div>
+          <div style="font-size:12.5px;color:#8A8073;margin-top:4px">${d.desc}</div>
+        </div>`;}).join("")}</div>
+    </div>
+    <div class="startZone">
+      <button class="bigBtn" id="startBtn" onclick="go()">${isDone(id)?"再闯一次":"开始闯关"} →</button>
+      <p style="font-size:13px;color:#8A8073;margin-top:9px" id="gainHint"></p>
+    </div>`;
+  updDiffUI(u);
+  $("#posterMask").classList.add("show");
+}
+function selDiff(k){CUR_DIFF=k;updDiffUI(byId(POSTER_ID));}
+function go(){if(POSTER_ID)startQuiz(POSTER_ID,CUR_DIFF);}
+function updDiffUI(u){
+  document.querySelectorAll(".diffCard").forEach(c=>c.classList.toggle("sel","dc-"+CUR_DIFF===c.id));
+  const list=pickByDiff(u,CUR_DIFF), d=diffObj(CUR_DIFF);
+  const hint=$("#gainHint");
+  if(hint)hint.innerHTML=`当前「${d.name}」：${list.length} 题，全对可得 <b>${gainOf(list,CUR_DIFF)}</b> 积分${S.log.length?` · AI 建议难度：<b>${diffObj(recommendDiff(u.id)).name}</b>`:""}`;
+}
+function closePoster(){$("#posterMask").classList.remove("show");}
+/* ============ 答题 ============ */
+let Q={list:[],i:0,right:0,unit:null,diff:"normal",cur:[],custom:false,title:""};
+function startQuiz(id,k,customList){
+  closePoster();
+  k=k||recommendDiff(id);
+  const u=byId(id);
+  const list=customList||pickByDiff(u,k);
+  Q={list,i:0,right:0,unit:u,diff:k,cur:[],custom:!!customList,title:customList?"AI 专属练习":u.game};
+  S.last={u:id,d:k};
+  $("#quizMask").classList.add("show");
+  renderQ();
+}
+function renderQ(){
+  const q=Q.list[Q.i], u=Q.unit, d=diffObj(Q.diff);
+  const opts=[q[1],q[2],q[3]].sort(()=>Math.random()-.5);
+  Q.cur=opts;
+  $("#quizModal").innerHTML=`
+    <div class="quiz-top"><b>${Q.title} · 第 ${Q.i+1} 题 / 共 ${Q.list.length} 题</b>
+    <span class="combo" style="background:${d.color};color:#fff">${d.icon} ${d.name} · 连对 ${Q.right}</span></div>
+    <div class="track"><i style="width:${Q.i/Q.list.length*100}%"></i></div>
+    <div class="q">${q[0]}</div>
+    <div class="opts">${opts.map((o,i)=>`<div class="opt" onclick="pick(${i},this)"><em>${"ABC"[i]}</em>${o}</div>`).join("")}</div>
+    <div class="feedback" id="fb"><div><b id="fbT"></b><span id="fbS"></span></div>
+    <button class="nbtn hidden" id="nextB" onclick="nextQ()">${Q.i===Q.list.length-1?"看结算":"下一题"}</button></div>`;
+}
+function pick(i,el){
+  const q=Q.list[Q.i], fb=$("#fb"), nodes=[...document.querySelectorAll(".opt")];
+  const ok=Q.cur[i]===q[1];
+  nodes.forEach(x=>x.onclick=null);
+  const b=q.length>5?q[5]:0;
+  S.log.push({u:Q.unit.id,b,ok,d:q[4],t:new Date().toISOString()});
+  if(S.log.length>400)S.log=S.log.slice(-400);
+  if(ok){Q.right++;el.classList.add("right");}
+  else{
+    el.classList.add("wrong");
+    const ri=Q.cur.indexOf(q[1]);
+    if(ri>-1)nodes[ri].classList.add("right");
+  }
+  fb.classList.add("show",ok?"ok":"no");
+  $("#fbT").textContent=ok?`回答正确！${q[1]} 就是答案。`:`再想想～正确答案是 ${q[1]}`;
+  $("#fbS").textContent=ok?"继续保持，积分马上到账":"回去看一眼思维导图，再战一次！";
+  $("#nextB").classList.remove("hidden");
+  save();
+}
+function nextQ(){
+  Q.i++;
+  if(Q.i<Q.list.length){renderQ();return;}
+  const u=Q.unit, perfect=Q.right===Q.list.length, d=diffObj(Q.diff);
+  const gain=Q.right*d.per+(perfect?d.bonus:0);
+  const firstClear=perfect&&!isDone(u.id);
+  let finalGain=gain+(firstClear?50:0);
+  // 家长设置的每日积分上限：当天已领满后，本次按半分计（不打击积极性，也防刷分）
+  const cap=parseInt(S.parent.cap)||0;
+  const capped=cap>0&&(S.gain[today()]||0)>=cap;
+  if(capped)finalGain=Math.round(finalGain*0.5);
+  S.energy+=finalGain; addGain(finalGain);
+  if(perfect&&!isDone(u.id))S.done.push(u.id);
+  calcBadges();save();
+  const nx=recommendDiff(u.id), nd=diffObj(nx);
+  $("#quizModal").innerHTML=`
+    <div class="result">
+      <div style="font-size:42px">${perfect?"🎉":"💪"}</div>
+      <div class="num">+${finalGain}</div>
+      <p style="margin:8px 0 4px;font-size:16px">答对 ${Q.right} / ${Q.list.length} 题 · 「${d.name}」${perfect?" · 全对通关！":""}</p>
+      ${firstClear?`<p style="font-size:14px;color:#3E6E3E;font-weight:700">首次点亮本单元，额外奖励 50 积分！</p>`:""}
+      ${capped?`<p style="font-size:13.5px;color:#8A5A0B">今天已学到爸爸妈妈设的每日上限啦，这次积分减半，明天再来又是满分 💛</p>`:""}
+      <p style="font-size:13.5px;color:#8A8073;margin-bottom:6px">当前总积分 ${S.energy}</p>
+      ${!perfect?`<button class="bigBtn" style="font-size:16px;padding:11px 28px;margin-bottom:10px;background:var(--orange)" onclick="startQuiz('${u.id}','${Q.diff}')">重看导图 · 再来一次</button>`:""}
+      ${perfect&&nx!==Q.diff?`<br><button class="bigBtn" style="font-size:15px;padding:10px 24px;margin-bottom:10px;background:${nd.color};color:#fff" onclick="startQuiz('${u.id}','${nx}')">AI 建议你升级到「${nd.name}」</button>`:""}
+      <div id="wishAfter"></div>
+      <br><button class="bigBtn" style="font-size:16px;padding:11px 30px;background:#fff" onclick="closeQuiz()">返回地图</button>
+    </div>`;
+  // 结算后提示可兑换的心愿
+  const can=S.wishes.filter(w=>w.c<=S.energy);
+  if(can.length){
+    $("#wishAfter").innerHTML=`<p style="font-size:14px;color:#B2781B;margin-top:10px">🎉 你的积分已经够兑换「${can[0].n}」啦！</p>
+      <button class="midBtn" onclick="closeQuiz();switchView('wish')">去心愿兑换 →</button>`;
+  }
+}
+function closeQuiz(){$("#quizMask").classList.remove("show");refreshAll();}
+/* ============ 心愿兑换 ============ */
+function buildWish(){
+  let html=`<div class="wishGrid">`;
+  S.wishes.forEach((w,i)=>{
+    const pct=Math.min(100,Math.round(S.energy/w.c*100)), can=S.energy>=w.c;
+    html+=`<div class="wish wob ${i%2?"wob2":""}"><span class="wico">${w.ic}</span>
+      <h4>${w.n}</h4><div class="cost">需要 ${w.c} 积分</div>
+      <div class="wishBar"><i style="width:${pct}%"></i></div>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:2px">
+        <span style="font-size:13px;color:${can?"#3E6E3E":"#8A8073"}">${can?"积分够啦！":"还差 "+(w.c-S.energy)+" 分"}</span>
+        <button class="midBtn" style="margin-left:auto;font-size:13px;padding:6px 14px;${can?"background:var(--green);color:#fff":"opacity:.5"}"
+          onclick="${can?`redeem(${i})`:`toast('还差 ${w.c-S.energy} 分，再去闯几关吧！')`}">${can?"兑换":"攒积分"}</button>
+        <button class="midBtn" style="font-size:13px;padding:6px 10px" onclick="delWish(${i})">✕</button>
+      </div></div>`;
+  });
+  html+=`<div class="wish wob2" style="border-style:dashed;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px">
+    <div><div style="font-size:30px">➕</div>
+    <h4 style="margin:6px 0 10px">自己加个心愿</h4>
+    <button class="midBtn" onclick="openWishForm()">说一个心愿</button></div></div>`;
+  html+=`</div>`;
+  html+=`<div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+    <button class="midBtn" onclick="addPreset()">➕ 从常用心愿里挑</button>
+    <span style="font-size:13px;color:#8A8073;align-self:center">心愿和价格（积分）由爸爸妈妈在「🔒 家长中心」里定，也可以随时调</span>
+    <button class="midBtn" onclick="switchView('parent')">去家长中心</button></div>`;
+  $("#wishZone").innerHTML=html;
+  // 心愿券
+  if(!S.tickets.length){
+    $("#ticketZone").innerHTML=`<p style="color:#8A8073;font-size:14px">还没有兑换过心愿，攒够积分就能换啦～</p>`;
+  }else{
+    $("#ticketZone").innerHTML=S.tickets.map((t,i)=>{
+      const st=ticketState(t);
+      const tag=st==="used"?`<span class="miniTag ok">已兑现</span>`:
+                st==="pending"?`<span class="miniTag pd">等家长批准</span>`:`<span class="miniTag ok">可兑现</span>`;
+      return `<div class="ticket ${st!=="ok"?"used":""}">
+        <span class="wico" style="width:44px;height:44px;font-size:22px">${t.ic}</span>
+        <div style="flex:1"><b style="font-size:17px">${t.n}</b>
+          <div style="font-size:13px;color:#8A8073">兑换日期 ${t.d} · 花费 ${t.c} 积分 · ${tag}</div></div>
+        <span class="num">-${t.c}</span>
+        ${st==="used"?`<button class="midBtn" style="font-size:13px;padding:6px 12px" onclick="delTicket(${i})">删除</button>`:
+          `<button class="midBtn" style="font-size:13px;padding:6px 12px;${st==="pending"?"opacity:.5":"background:var(--green);color:#fff"}" onclick="useTicket(${i})">爸爸妈妈已兑现</button>`}
+      </div>`;}).join("");
+  }
+}
+function redeem(i){
+  const w=S.wishes[i];
+  if(S.energy<w.c){toast("积分还不够哦");return;}
+  S.energy-=w.c;
+  const need=S.parent.approve!==false;
+  S.tickets.unshift({n:w.n,c:w.c,ic:w.ic,d:today(),used:false,st:need?"pending":"ok"});
+  save();buildWish();
+  toast(need?"已提交！请爸爸妈妈到「家长中心」批准 🎟️":"兑换成功！生成一张心愿券 🎟️");
+}
+/* 券状态：pending 待家长批准 / ok 可兑现 / used 已兑现 */
+function ticketState(t){return t.used?"used":(t.st||"ok");}
+function useTicket(i){
+  const t=S.tickets[i];
+  if(ticketState(t)!=="ok"){toast("这张券还要等爸爸妈妈批准哦");return;}
+  t.used=true;save();buildWish();toast("爸爸妈妈已确认兑现 ❤️");
+}
+function delTicket(i){S.tickets.splice(i,1);save();buildWish();}
+function delWish(i){S.wishes.splice(i,1);save();buildWish();}
+function openWishForm(){
+  openModal(`<div style="padding:26px"><h3 style="font-size:22px;margin-bottom:12px">🎁 写下一个心愿</h3>
+    <p style="font-size:14px;color:#8A8073;margin-bottom:16px">想实现什么？定一个需要多少积分换</p>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <input id="wn" placeholder="心愿名称，比如：看 15 分钟动画片" style="font-size:16px">
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+        <span>需要积分：</span><input id="wc" type="number" value="500" style="width:120px">
+        <span>图标：</span><select id="wi" style="width:100px">
+          ${["📱","🍪","🌙","🎡","📚","🎢","🎮","🍔","⚽","🎨"].map(x=>`<option>${x}</option>`).join("")}
+        </select></div>
+      <div style="display:flex;gap:10px;margin-top:6px">
+        <button class="bigBtn" style="font-size:16px;padding:10px 28px" onclick="submitWish()">加入心愿单</button>
+        <button class="midBtn" onclick="closeModal()">取消</button></div></div></div>`);
+}
+function submitWish(){
+  const n=$("#wn").value.trim(), c=parseInt($("#wc").value)||500, ic=$("#wi").value;
+  if(!n){toast("先写个心愿名字哦");return;}
+  S.wishes.push({id:"w"+Date.now(),n,c,ic});
+  save();closeModal();buildWish();toast("心愿已加入！去攒积分吧 💪");
+}
+function addPreset(){
+  const rest=WISH_PRESET.filter(p=>!S.wishes.some(w=>w.n===p.n));
+  if(!rest.length){toast("常用心愿都在清单里啦");return;}
+  openModal(`<div style="padding:26px"><h3 style="font-size:22px;margin-bottom:14px">常用心愿</h3>
+    <div class="wishGrid">${rest.map(p=>`<div class="wish wob"><span class="wico">${p.ic}</span><h4>${p.n}</h4>
+      <div class="cost">${p.c} 积分</div>
+      <div style="font-size:12.5px;color:#8A8073">${p.about}</div>
+      <button class="midBtn" style="margin-top:6px" onclick="addW('${p.n}',${p.c},'${p.ic}')">加入清单</button></div>`).join("")}</div>
+    <button class="midBtn" style="margin-top:14px" onclick="closeModal()">关掉</button></div>`);
+}
+function addW(n,c,ic){S.wishes.push({id:"w"+Date.now(),n,c,ic});save();closeModal();buildWish();toast("已加入心愿单 ✨");}
+
+/* ============ AI 教练 ============ */
+function buildCoach(){
+  const dg=diagnose();
+  const rows=UNITS.map(u=>{
+    const m=mastery(u.id);
+    const hit=S.log.filter(x=>x.u===u.id).length;
+    const col=m.n===0?"#DDD6C6":m.p>=.85?"#5CA35C":m.p>=.6?"#F0A63A":"#E85A4F";
+    return `<div class="mRow"><span class="nm">${u.name}</span>
+      <span class="bar"><i style="width:${Math.round(m.p*100)}%;background:${col}"></i></span>
+      <span class="pc" style="color:${col==="#DDD6C6"?"#B4AC9B":col}">${m.n?Math.round(m.p*100)+"%":"—"}</span></div>`;
+  }).join("");
+  let diag="";
+  if(dg.got===0){
+    diag=`你还没开始闯关呢。<b>建议从「上册第一单元 · 圆」、用「轻松闯」开始</b>，先找找手感，答完几题我就能算出你的掌握情况啦。`;
+  }else if(dg.got<8){
+    diag=`已经练了 ${dg.got} 题，还在摸底阶段。<b>再多答几题</b>，我就能判断哪个知识点最需要补，给你出更准的练习题。`;
+  }else{
+    const overall=UNITS.reduce((s,u)=>s+mastery(u.id).p,0)/UNITS.length;
+    if(overall>=.85)diag=`整体掌握度 <b>${Math.round(overall*100)}%</b>，很稳！可以<b>多挑战几个单元</b>，把易错题彻底吃透。`;
+    else if(overall>=.6)diag=`整体掌握度 <b>${Math.round(overall*100)}%</b>，中等偏上。建议<b>每天固定练一个单元</b>，把下面的薄弱点清掉。`;
+    else diag=`整体掌握度 <b>${Math.round(overall*100)}%</b>，基础还不太牢。别急着做难题，<b>先用「轻松闯」把概念题练到全对</b>再说。`;
+    if(dg.weak.length)diag+=`<br>接下来优先补：<b>${dg.weak.map(w=>w.u+" · "+w.b).join("、")}</b>。`;
+  }
+  const hasLLM=!!S.llm.key;
+  $("#coachZone").innerHTML=`
+    <div class="panel">
+      <h3>📊 各单元掌握度</h3>
+      <p class="hint">按最近答题表现加权计算，越近的题权重越高</p>
+      ${rows}
+      <p style="font-size:13px;color:#8A8073;margin-top:8px">共累计答题 ${S.log.length} 题 · ${today()===S.lastDay?"今天已打卡":(S.lastDay===""?"今天还没练习":"上次练习 "+S.lastDay)}</p>
+    </div>
+    <div class="panel">
+      <h3>🤖 AI 诊断与建议</h3>
+      <p class="hint">${hasLLM?"已接入大模型，可生成全新题目":"未接大模型，使用内置的智能出题引擎"}</p>
+      <div class="diag">${diag}</div>
+      <div style="margin-top:14px">
+        ${dg.weak.length?`<div style="font-size:14px;font-weight:700;margin-bottom:6px">需要加强</div>${dg.weak.map(w=>`<span class="weak">${w.u} · ${w.b} ${Math.round(w.p*100)}%</span>`).join("")}`:""}
+        ${dg.strong.length?`<div style="font-size:14px;font-weight:700;margin:10px 0 6px">已经不错</div>${dg.strong.map(w=>`<span class="good">${w.u} · ${w.b}</span>`).join("")}`:""}
+      </div>
+      <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
+        <button class="bigBtn" style="font-size:16px;padding:11px 26px;background:var(--purple);color:#fff" onclick="genPractice()">🎯 生成专属练习</button>
+        <button class="midBtn" onclick="switchView('me')">设置大模型</button>
+      </div>
+      <p id="genTip" style="font-size:13px;color:#8A8073;margin-top:8px"></p>
+    </div>`;
+}
+/* 本地自适应出题：围绕薄弱知识点 + 合适难度 */
+function localPractice(){
+  const dg=diagnose();
+  let pool=[];
+  const weak=dg.weak.length?dg.weak:[{uid:UNITS[0].id,bi:0,p:0}];
+  weak.forEach(w=>{
+    const u=byId(w.uid);
+    const lvl=w.p>=.6?2:(w.p>=.4?1:1);
+    let cand=u.q.filter(x=>x[5]===w.bi&&x[4]<=lvl+1);
+    if(cand.length<2)cand=u.q.filter(x=>x[5]===w.bi);
+    if(cand.length<2)cand=u.q.filter(x=>x[4]<=lvl+1);
+    pool=pool.concat(cand.slice(0,2));
+  });
+  if(pool.length<5){
+    const other=UNITS.flatMap(u=>u.q.filter(x=>x[4]<=2));
+    pool=pool.concat(other.sort(()=>Math.random()-.5).slice(0,5-pool.length));
+  }
+  return pool.slice(0,6);
+}
+async function genPractice(){
+  const tip=$("#genTip");
+  if(S.llm&&S.llm.key){
+    tip.textContent="正在请大模型为你出题，请稍等…";
+    try{
+      const list=await llmPractice();
+      if(list&&list.length>=3){
+        tip.textContent="大模型出题完成！开始吧";
+        startQuiz(S.last?S.last.u:UNITS[0].id,"normal",list);
+        return;
+      }
+      throw new Error("bad");
+    }catch(e){
+      tip.textContent="大模型没有响应，已改用内置引擎出题";
+      const list=localPractice();
+      startQuiz(list[0]?findUnitOf(list[0]):UNITS[0].id,"normal",list);
+      return;
+    }
+  }
+  tip.textContent="已根据你的薄弱知识点挑好题目";
+  const list=localPractice();
+  startQuiz(S.last?S.last.u:UNITS[0].id,"normal",list);
+}
+function findUnitOf(q){const u=UNITS.find(x=>x.q.includes(q));return u?u.id:UNITS[0].id;}
+/* 大模型出题（OpenAI 兼容接口） */
+async function llmPractice(){
+  const dg=diagnose();
+  const weakTxt=dg.weak.map(w=>`${w.u} 的「${w.b}」正确率约 ${Math.round(w.p*100)}%`).join("；")||"全部都还没测出数据，请出基础题";
+  const prompt=`你是北师大版小学六年级数学辅导老师。学生情况：${weakTxt}。
+请严格只输出 JSON，不要任何解释文字，格式：
+[{"q":"题干","a":"正确选项","b":"干扰项1","c":"干扰项2","d":难度数字1到3,"unit":"所属单元名","branch":"所属知识点"}]
+要求：出 5 道针对薄弱点的六年级数学选择题，题干用生活情境，选项要有迷惑性且长度接近，难度以 2 为主。`;
+  const cfg=S.llm;
+  const r=await fetch(cfg.base.replace(/\/+$/,"")+"/chat/completions",{
+    method:"POST",
+    headers:{"Content-Type":"application/json","Authorization":"Bearer "+cfg.key},
+    body:JSON.stringify({model:cfg.model,temperature:.7,max_tokens:1200,
+      messages:[{role:"system",content:"你是小学数学老师，只输出合法 JSON 数组。"},{role:"user",content:prompt}]})
+  });
+  if(!r.ok)throw new Error("http "+r.status);
+  const j=await r.json();
+  let txt=j.choices[0].message.content||"";
+  txt=txt.replace(/```json|```/g,"").trim();
+  const m=txt.match(/\[[\s\S]*\]/);
+  if(!m)throw new Error("no json");
+  const arr=JSON.parse(m[0]);
+  return arr.map(x=>[String(x.q),String(x.a),String(x.b),String(x.c),Number(x.d)||2,0]);
+}
+
+/* ============ 闯关大厅 / 勋章 ============ */
+function buildGames(){
+  $("#gameGrid").innerHTML=UNITS.map(u=>{
+    const done=isDone(u.id), m=mastery(u.id), rec=recommendDiff(u.id), rd=diffObj(rec);
+    return `<div class="gcard wob ${u.q.length%2?"wob2":""}" onclick="openPoster('${u.id}')">
+      <div class="top"><span class="gicon" style="background:${u.color}">${u.name.slice(0,1)}</span>
+      <div><h4>${u.game}</h4><p>${bookOf(u).name} · 第${u.no}单元 ${u.name}</p></div></div>
+      <div style="display:flex;gap:6px;margin-bottom:10px">
+        ${DIFFS.map(d=>`<span style="font-size:12px;padding:3px 9px;border:2px solid var(--ink);border-radius:9px;background:${d.k===rec?d.color:"#fff"};color:${d.k===rec?"#fff":"#8A8073"}">${d.icon}${d.name}</span>`).join("")}
+      </div>
+      <div class="bot"><span class="meta">掌握 ${m.n?Math.round(m.p*100)+"%":"未练"} · ${done?"已通关":"未通关"}</span>
+      <span class="gbtn" style="background:${done?"#F2EDE2":u.bg}">${done?"再玩一次":"去挑战"}</span></div></div>`;
+  }).join("");
+}
+function calcBadges(){
+  MILESTONES.forEach(b=>{
+    let ok=typeof b.need==="number"?S.done.length>=b.need:BOOKS.find(x=>x.id===b.need).units.every(isDone);
+    if(ok&&!S.badges.includes(b.name))S.badges.push(b.name);
+  });
+}
+function buildMedals(){
+  calcBadges();
+  $("#badgeGrid").innerHTML=MILESTONES.map(b=>{
+    const ok=S.badges.includes(b.name);
+    return `<div class="badge wob ${ok?"wob2":""} ${ok?"":"locked"}"><div class="b" style="background:${b.bg}">${b.icon}</div>
+      <h4>${b.name}</h4><p>${ok?"已点亮 · ":"未达成 · "}${b.desc}</p></div>`;
+  }).join("");
+}
+
+/* ============ 我 / 跨设备同步 ============ */
+function buildMe(){
+  const code=makeCode();
+  $("#meZone").innerHTML=`
+    <div class="panel">
+      <h3>👤 我的档案</h3>
+      <p class="hint">写上名字，学习报告和心愿券都会带上它</p>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <input id="myName" value="${S.name}" placeholder="我的名字" style="width:200px">
+        <button class="midBtn" onclick="saveName()">保存</button>
+      </div>
+      <div style="margin-top:18px">
+        <h3 style="font-size:18px">📅 学习 streak</h3>
+        <p class="hint">连续学习 <b style="color:var(--red)">${S.streak||0}</b> 天${S.lastDay?` · 上次 ${S.lastDay}`:""}</p>
+      </div>
+      <div style="margin-top:6px">
+        <h3 style="font-size:18px">📈 累计数据</h3>
+        <p class="hint">答题 ${S.log.length} 题 · 点亮单元 ${S.done.length}/11 · 总积分 ${S.energy}${S.tickets.length?` · 心愿券 ${S.tickets.length} 张`:""}</p>
+      </div>
+      <div style="margin-top:16px;padding:12px 14px;background:#F1F6FB;border:2px dashed rgba(58,52,43,.25);border-radius:14px">
+        <h3 style="font-size:18px">💻 这台设备</h3>
+        <p class="hint">${DEV.tag||"本机"}${DEV.since?` · 首次使用 ${DEV.since}`:""}${DEV.lastSync?` · 上次同步 ${DEV.lastSync}`:" · 还没同步过"}</p>
+        <p class="hint" style="margin-top:4px">进度保存在<b>这台浏览器</b>里；换电脑 / 平板要在那边登录一次学习码</p>
+        <div style="margin-top:10px"><button class="midBtn" style="background:#FFE4E1" onclick="switchAccount()">🔄 在这台设备上切换账号</button></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>🔑 学习码 = 你的登录凭证</h3>
+      <p class="hint">换设备的完整步骤：① 在这里复制学习码 → ② 在另一台打开同一网址 → ③ 选择「我在别的设备上学过」粘贴 → 登录完成</p>
+      <ol style="font-size:15px;line-height:2;margin:8px 0 14px 20px;color:#5A5348">
+        <li><b>老设备：</b>复制下面的学习码（或导出备份文件存到微信 / U 盘）</li>
+        <li><b>新设备：</b>浏览器打开同一个网址，会弹出登录页，选「🔑 我在别的设备上学过」</li>
+        <li><b>粘贴登录：</b>积分、掌握度、勋章、心愿清单、家长设置全部回来</li>
+        <li><b>回程：</b>新设备玩过后要回老设备，重复一次（学习码总是取最新的那一台）</li>
+      </ol>
+      <textarea id="codeBox" rows="4" style="width:100%;font-size:12px;word-break:break-all">${code}</textarea>
+      <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap">
+        <button class="midBtn" onclick="copyCode()">📋 复制学习码</button>
+        <button class="midBtn" onclick="downloadFile()">💾 导出文件备份</button>
+        <button class="midBtn" onclick="openImport()">📥 导入进度</button>
+        <button class="midBtn" onclick="resetAll()" style="background:#FFE4E1">清空重来</button>
+      </div>
+      <p style="font-size:13px;color:#8A8073;margin-top:10px">提示：学习码包含积分、掌握度、已点亮的单元、心愿清单和家长设置（密码不存明文），换设备粘贴一下就接着学</p>
+      <p style="font-size:13px;color:#B23A30;margin-top:6px">⚠️ 学习码等于「账号密码」，谁拿到都能登录这份进度，别发到班级群或公开地方</p>
+      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+        <button class="midBtn" onclick="switchView('parent')">🔒 去家长中心</button>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>🤖 大模型设置（可选）</h3>
+      <p class="hint">填写后可让 AI 按孩子的情况实时出新题；不填也能用，系统用内置的智能出题引擎</p>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <input id="llmBase" value="${S.llm.base}" placeholder="接口地址 (OpenAI 兼容)">
+        <input id="llmModel" value="${S.llm.model}" placeholder="模型名，如 deepseek-chat">
+        <input id="llmKey" value="${S.llm.key}" placeholder="API Key" type="password" autocomplete="off">
+        <div style="display:flex;gap:10px">
+          <button class="midBtn" onclick="saveLLM()">保存设置</button>
+          <button class="midBtn" onclick="testLLM()">测试连接</button>
+        </div>
+        <p id="llmTip" style="font-size:13px;color:#8A8073"></p>
+      </div>
+    </div>
+    <div class="panel" style="grid-column:1/-1">
+      <h3>📱 平板 / 手机怎么打开（不用下载 App）</h3>
+      <p class="hint">两种办法：推荐「方式② 文件直发」—— 整个产品就这一个 HTML 文件，发过去就能用，有没有网都不影响</p>
+      <div style="display:flex;gap:22px;flex-wrap:wrap;align-items:flex-start">
+        <div style="text-align:center;flex:none">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAFoCAIAAAD1h/aCAAAHrklEQVR4nO3dO44jNxRA0R5jluPUkdavyKn3I++ggEsXabJ0TjzdXfrgggM8PP76fD4/AMUf6V8DCAcwwokDyIQDyIQDyIQDyIQDyIQDyIQDyIQDyIQDyIQDyIQDyIQDyIQDyIQDyIQDyIQDyIQDyIQDyIQDyIQDyIQDyIQDyIQDyIQDyIQDyH7/TPD668+fk73//ueIV3fxnM9+yLHfef2xXtjnzRwz/MIvOHEAmXAAmXAAmXAAmXAAmXAAmXAAmXAAewyALZ5FGTNj+mgfMx5ybLZqeCLr4gdnTHmd/mV4rZ1Sc+IAMuEAMuEAMuEAMuEAMuEAMuEAMuEAth8AWzzBsng+Z+wlzNhMNeOF3/47r9+u21eHLX67Xud/ny84cQCZcACZcACZcACZcACZcACZcACZcAAnD4Cd4vbBnmffhDg8x7V44RiJEweQCQeQCQeQCQeQCQeQCQeQCQeQCQeQCQeQmRz9/92+I28ri+/oNVS6hhMHkAkHkAkHkAkHkAkHkAkHkAkHkAkHcPIA2NdudhvedmeJYXrHFn/B3o/+PjtxAJlwAJlwAJlwAJlwAJlwAJlwAJlwANsPgD1gpdXK9VPXb9fi1WH7vLox+9yn+wBOHEAmHEAmHEAmHEAmHEAmHEAmHEAmHED26/P59J/6amMzPzOGtfa5O3LGtqvb57VmDIB9LScOIBMOIBMOIBMOIBMOIBMOIBMOIBMOIBMOYI/VgYtH9GbsrRtz+6sb/oWL3+cjFvbtM2h77Yi5WCcOIBMOIBMOIBMOIBMOIBMOIBMOIBMOYI8BsNsvGX3AbNg+c1AXrp/kiLtjj5jre10+5O3jbTM4cQCZcACZcACZcACZcACZcACZcACZcADb3x27eLhln3GgfS4u3ec9ubZyK9dWH8F7m/nJC04cQCYcQCYcQCYcQCYcQCYcQCYcQCYcwPZXQM74hWOjLzOGyhYvrVq8kmufub7b3+cZH8GFxcNaMzhxAJlwAJlwAJlwAJlwAJlwAJlwAJlwANtvAJsxWLX4JsSVw07fvK1r5cWLi79gDxgPc+IAMuEAMuEAMuEAMuEAMuEAMuEAMuEAMuEA9pgcXbxI7nT7XAg6Y0XjKfOa+1zm+trm+3DBiQPIhAPIhAPIhAPIhAPIhAPIhAPIhAM4eXXgsNvvSR0eTJpxLeuYGZsKb391i5cYzvh03t86G+bEAWTCAWTCAWTCAWTCAWTCAWTCAWTCAZw8AHbE/aNbbaYaM2P6iJ23dc3gxAFkwgFkwgFkwgFkwgFkwgFkwgFkwgFkv38muH1SaMZdgTOWKe0z83Px6k554bdvFTtl59t77VaxMU4cQCYcQCYcQCYcQCYcQCYcQCYcQCYcQCYcwB6rA/e5XXWfUc6v3db3tbOVFx7wVXfiADLhADLhADLhADLhADLhADLhADLhAPZYHXj7zM8pqwMXz2uNPecpL3zlRNNWz/9eOyQ5xokDyIQDyIQDyIQDyIQDyIQDyIQDyIQD2P7u2LHhluu5l8X7oPYZwtln29XiP3f7F2zxl+G99qrdGX/OiQPIhAPIhAPIhAPIhAPIhAPIhAPIhAPY4wrIxY4YB5rxJLdPHw0P2l3YZ+zqwvD7/F57weU+nDiATDiATDiATDiATDiATDiATDiATDiATDiAPSZHFw/23W6rTYX77K3bZ2fi7R/B4k/8tdNVtWOcOIBMOIBMOIBMOIBMOIBMOIBMOIBMOIA97o69fRZlxha2GcNaR8z8LH7hY0+y2Faf+Hvtt2iMEweQCQeQCQeQCQeQCQeQCQeQCQeQCQfw0LtjF1/DOWMf1GL7POTihWNHzOA9gBMHkAkHkAkHkAkHkAkHkAkHkAkHkAkH8NArILdahHX7Bq3FF0eOPcn6TWv7TNPd7n3+2JgTB5AJB5AJB5AJB5AJB5AJB5AJB5AJB/DQDWBbecC81hE3e678czM+uNfaybfF3z0nDiATDiATDiATDiATDiATDiATDiATDiATDiD7/TPB6UvftpojHDPjCtV9Ji9P/+xea0dmZ3DiADLhADLhADLhADLhADLhADLhADLhAPYYADtiuGXGPam3/9QpM3hjI1KL7+gddvufe4/+wn2G4pw4gEw4gEw4gEw4gEw4gEw4gEw4gEw4gO0HwBbPLO2zD2rGONPta74WDybtswhrn3m5n/8wMreSEweQCQeQCQeQCQeQCQeQCQeQCQeQCQdw8gDYKW4fuxqeDdvnasIZk2+3D2UtHm9b/CSLZ8OcOIBMOIBMOIBMOIBMOIBMOIBMOADhAOZz4gAyk6N3mjGvuY8jnnPx9sYxVgcC38h/VYBMOIBMOIBMOIBMOIBMOIBMOICTB8D2uRdz2OJdfrc/yYxNhRc/Nfzqbt/eOPznHjxKd82JA8iEA8iEA8iEA8iEA8iEA8iEA8iEA9h+AOwBoy+LL4gdMzZ2NeNJ9rmxddjt79h77Sc+4885cQCZcACZcACZcACZcACZcACZcACZcADZr8/n038K+GpOHEAmHEAmHEAmHEAmHEAmHEAmHEAmHEAmHEAmHEAmHEAmHEAmHEAmHEAmHEAmHEAmHEAmHEAmHEAmHEAmHEAmHEAmHEAmHEAmHEAmHEAmHMBP9S9QnP6dWejfBAAAAABJRU5ErkJggg==" alt="扫码打开数学冒险岛" style="width:170px;height:170px;border:2.5px solid var(--ink);border-radius:14px;background:#fff;padding:5px">
+          <div style="font-size:13px;color:#8A8073;margin-top:6px">平板相机 / 微信扫一扫</div>
+        </div>
+        <div style="flex:1;min-width:280px">
+          <div style="font-size:16px;font-weight:700;margin-bottom:8px">方式① · 扫码打开网址</div>
+          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px">
+            <code style="font-size:13px;background:#FFF6E8;border:2px dashed rgba(58,52,43,.25);border-radius:10px;padding:8px 10px;word-break:break-all">${APP_URL}</code>
+            <button class="midBtn" onclick="copyStr(APP_URL,'网址已复制')">📋 复制网址</button>
+          </div>
+          <p style="font-size:13px;color:#B23A30;line-height:1.8">⚠️ 若打开时提示「链接不完整 / 缺少访问参数」，说明这份云端分享链接已失效<br>—— 直接用下面的方式②，100% 能用，而且断网也能学</p>
+        </div>
+      </div>
+      <div style="margin-top:16px;background:#EFF7EA;border:2px solid rgba(58,52,43,.2);border-radius:14px;padding:14px 16px">
+        <div style="font-size:16px;font-weight:700;color:#3E6E3E">方式② · 文件直发（推荐）</div>
+        <p style="font-size:14px;color:#3A342B;line-height:2;margin-top:6px">
+          ① 把电脑上这个 <b>数学冒险岛-六年级数学.html</b> 文件（就一个，约 124 KB）发到平板：微信「文件传输助手」/ QQ / 邮件 / U 盘都行<br>
+          ② 平板上点开它，选择「用 Safari / Chrome 打开」<br>
+          ③ 打开就是完整版：知识地图、闯关、积分、AI 教练、家长中心全都在<br>
+          ④ 在浏览器里把当前页「添加到主屏幕」，以后点桌面图标就能进
+        </p>
+        <p style="font-size:13px;color:#5A5348;margin-top:6px;line-height:1.8">提示：文件方式完全离线可用（只有「AI 实时出题」和「云同步」需要联网）。孩子的进度仍保存在平板上，换设备时用学习码搬一下就好。</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px">
+        <div style="background:#F1F6FB;border:2px solid rgba(58,52,43,.2);border-radius:14px;padding:12px 14px">
+          <b style="font-size:15px">iPad / iPhone · 加到主屏幕</b>
+          <p style="font-size:13px;color:#5A5348;line-height:1.9;margin-top:4px">① 用 <b>Safari</b> 打开<br>② 点底部「分享 ⤴」<br>③ 选「添加到主屏幕」<br>④ 桌面出现「数学冒险岛」</p>
+        </div>
+        <div style="background:#F1F6FB;border:2px solid rgba(58,52,43,.2);border-radius:14px;padding:12px 14px">
+          <b style="font-size:15px">安卓 / 华为 / 小米平板</b>
+          <p style="font-size:13px;color:#5A5348;line-height:1.9;margin-top:4px">① 用 Chrome 或自带浏览器打开<br>② 点右上角「⋮」菜单<br>③ 选「添加到主屏幕 / 桌面」<br>④ 图标点开就是全屏</p>
+        </div>
+      </div>
+      <p style="font-size:13px;color:#8A8073;margin-top:10px;line-height:1.8">加上图标后孩子自己点开就行，不用记网址。<b>进度不会自动在两台设备间同步</b>：换设备时粘贴一次学习码（见左边「学习码 = 登录凭证」卡）。</p>
+    </div>`;
+}
+function saveName(){S.name=$("#myName").value.trim();save();toast("名字保存好啦");}
+function saveLLM(){
+  S.llm={base:$("#llmBase").value.trim(),model:$("#llmModel").value.trim(),key:$("#llmKey").value.trim()};
+  save();$("#llmTip").textContent="设置已保存";toast("AI 设置已保存");
+}
+async function testLLM(){
+  const t=$("#llmTip");
+  if(!S.llm.key){t.textContent="请先填写 API Key";return;}
+  t.textContent="正在测试…";
+  try{
+    const list=await llmPractice();
+    t.innerHTML=`<span style="color:#3E6E3E">连接成功！AI 出了 ${list.length} 道题，回到「AI 教练」点生成即可使用</span>`;
+  }catch(e){
+    t.innerHTML=`<span style="color:#B23A30">连接失败：${e.message}（可能是网络限制或 Key 不对，不影响正常使用内置引擎）</span>`;
+  }
+}
+/* ============ 家长中心 ============ */
+let P_UNLOCK=false,P_BUF="",P_TMP="",P_MODE="set1",P_SETUP=false,P_TIP="";
+const P_LEN=4;
+function buildParent(){
+  const z=$("#parentZone");
+  if(!P_UNLOCK){renderLock();return;}
+  const td=today(), dg=diagnose();
+  const rightN=S.log.reduce((s,x)=>s+(x.ok?1:0),0);
+  const rate=S.log.length?Math.round(rightN/S.log.length*100):0;
+  const days=[];
+  for(let i=6;i>=0;i--){
+    const d=new Date(Date.now()-i*86400000), k=d.toISOString().slice(0,10);
+    days.push({k,label:(d.getMonth()+1)+"/"+d.getDate(),v:S.gain[k]||0});
+  }
+  const mx=Math.max(50,...days.map(x=>x.v));
+  const pend=S.tickets.map((t,i)=>({t,i})).filter(x=>ticketState(x.t)==="pending");
+  const oks=S.tickets.map((t,i)=>({t,i})).filter(x=>ticketState(x.t)==="ok");
+  const used=S.tickets.map((t,i)=>({t,i})).filter(x=>ticketState(x.t)==="used");
+  const weakTxt=dg.weak.length?dg.weak.map(w=>`<span class="weak">${w.u} · ${w.b}</span>`).join(" "):`<span class="good">暂时没有明显薄弱点，继续保持 👍</span>`;
+  z.innerHTML=`
+  <div class="panel" style="margin-bottom:20px">
+    <h3>📊 学习概览</h3>
+    <p class="hint">小朋友：<b>${S.name||"（还没写名字）"}</b> · 数据存在这台设备上，换设备请用右上角「我 / 同步」里的学习码</p>
+    <div class="statRow">
+      <div class="statCard orange"><b>${S.gain[td]||0}</b><span>今日获得积分</span></div>
+      <div class="statCard"><b>${S.energy}</b><span>当前可用积分</span></div>
+      <div class="statCard blue"><b>${S.streak||0}</b><span>连续学习天数</span></div>
+      <div class="statCard green"><b>${S.done.length}/11</b><span>已通关单元</span></div>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-bottom:20px">
+    <h3>📈 近 7 天学习量</h3>
+    <p class="hint">每天闯关拿到的积分，柱子越高说明那天练得越多</p>
+    <div class="weekChart">
+      ${days.map(d=>`<div class="col">
+        <div class="cv ${d.v?"":"zero"}" style="height:${d.v?Math.max(6,Math.round(d.v/mx*100)):3}%"></div>
+        <div class="cl">${d.label}</div></div>`).join("")}
+    </div>
+    <p class="hint" style="margin-top:10px">共答题 <b>${S.log.length}</b> 题 · 正确率 <b>${rate}%</b>${S.log.length?"":"（还没有记录，先陪孩子闯几关）"}</p>
+    <h3 style="margin-top:20px;font-size:20px">🎯 各单元掌握情况</h3>
+    <p class="hint">答过的题按时间加权计算，越近的答题越能代表现在的水平</p>
+    ${UNITS.map(u=>{
+      const m=mastery(u.id);
+      const col=m.n===0?"#C9C2B4":m.p>=.85?"#5CA35C":m.p>=.6?"#F0A63A":"#E85A4F";
+      return `<div class="mrow"><span class="nm">${u.vol=="六上"?"上":"下"} · ${u.name}</span>
+        <span class="bar"><i style="width:${Math.round(m.p*100)}%;background:${col}"></i></span>
+        <span class="pv" style="color:${col}">${m.n?Math.round(m.p*100)+"%":"未练"}</span></div>`;
+    }).join("")}
+    <div style="margin-top:14px"><b style="font-size:15px">建议先加练：</b><div style="margin-top:6px">${weakTxt}</div></div>
+  </div>
+
+  <div class="panel" style="margin-bottom:20px">
+    <h3>💰 心愿积分定价</h3>
+    <p class="hint">${PRICE_RULE} —— 觉得不合适直接在下面改，改完点「保存」</p>
+    ${S.wishes.map((w,i)=>{
+      const pre=WISH_PRESET.find(p=>p.n===w.n);
+      return `<div class="priceRow">
+        <span class="wico" style="width:36px;height:36px;font-size:18px">${w.ic}</span>
+        <span class="pn">${w.n}</span>
+        <span class="tip">${pre?pre.about:priceTip(w.c)}</span>
+        <input type="number" id="pc${i}" value="${w.c}" step="50">
+        <button class="midBtn" style="font-size:13px;padding:5px 12px" onclick="savePrice(${i})">保存</button>
+        <button class="midBtn" style="font-size:13px;padding:5px 10px" onclick="delWish(${i});buildParent()">✕</button>
+      </div>`;}).join("")}
+    <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap">
+      <button class="midBtn" onclick="resetPrices()">↺ 恢复默认心愿清单</button>
+      <button class="midBtn" onclick="openWishForm()">➕ 加一个心愿</button>
+      <button class="midBtn" onclick="addPreset()">📋 从建议清单里挑</button>
+    </div>
+    <p class="hint" style="margin-top:12px">建议：小愿望 300–600 分（一两天能拿到），大愿望 1200 分以上（一到两周），孩子才有持续动力</p>
+  </div>
+
+  <div class="panel" style="margin-bottom:20px">
+    <h3>🎟️ 心愿券审批</h3>
+    <p class="hint">兑换后先到这里排队；批准后孩子才能在心愿页点「爸爸妈妈已兑现」，驳回会把积分退回</p>
+    ${pend.length?pend.map(({t,i})=>`<div class="priceRow">
+      <span class="wico" style="width:36px;height:36px;font-size:18px">${t.ic||"🎁"}</span>
+      <span class="pn">${t.n} <span class="miniTag pd">等批准</span></span>
+      <span class="tip">${t.d} · ${t.c} 积分</span>
+      <button class="midBtn" style="font-size:13px;padding:5px 12px;background:var(--green);color:#fff" onclick="approveTicket(${i})">✓ 批准</button>
+      <button class="midBtn" style="font-size:13px;padding:5px 12px;background:#FFE4E1" onclick="rejectTicket(${i})">驳回并退分</button>
+    </div>`).join(""):`<p style="font-size:14px;color:#8A8073">暂时没有等着批准的心愿券</p>`}
+    ${oks.length?`<h3 style="margin-top:16px;font-size:18px">可兑现的券</h3>`+oks.map(({t,i})=>`<div class="priceRow">
+      <span class="wico" style="width:36px;height:36px;font-size:18px">${t.ic||"🎁"}</span>
+      <span class="pn">${t.n} <span class="miniTag ok">已批准</span></span>
+      <span class="tip">${t.d} · ${t.c} 积分</span>
+      <button class="midBtn" style="font-size:13px;padding:5px 12px;background:var(--green);color:#fff" onclick="markUsed(${i})">标记为已兑现 ❤️</button>
+    </div>`).join(""):""}
+    ${used.length?`<h3 style="margin-top:16px;font-size:18px">已经兑现过的</h3>`+used.map(({t})=>`<div class="priceRow" style="opacity:.6">
+      <span class="wico" style="width:36px;height:36px;font-size:18px">${t.ic||"🎁"}</span>
+      <span class="pn">${t.n}</span><span class="tip">${t.d} · ${t.c} 积分</span><span class="miniTag ok">已兑现</span></div>`).join(""):""}
+  </div>
+
+  <div class="panel">
+    <h3>⚙️ 家长设置</h3>
+    <p class="hint">这些设置会跟着学习码一起同步到别的设备</p>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px">
+      <span style="font-size:15px">每日积分上限：</span>
+      <input type="number" id="pCap" value="${S.parent.cap||0}" step="50" style="width:110px">
+      <button class="midBtn" onclick="saveCap()">保存</button>
+      <span style="font-size:13px;color:#8A8073">0 = 不限制；达到上限后当天再闯关只算一半积分</span>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px">
+      <span style="font-size:15px">兑换心愿：</span>
+      <select id="pApprove" onchange="saveApprove()" style="width:190px">
+        <option value="1" ${S.parent.approve!==false?"selected":""}>需要家长批准</option>
+        <option value="0" ${S.parent.approve===false?"selected":""}>孩子可以自己兑换</option>
+      </select>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px">
+      <button class="midBtn" onclick="openPinChange()">🔑 修改家长密码</button>
+      <button class="midBtn" onclick="openQAForm(false)">🗝️ 找回问题（${S.parent.q||"未设置"}）</button>
+    </div>
+    <div style="border-top:1px dashed #DCD5C6;padding-top:14px">
+      <h3 style="font-size:18px">☁️ 账号云同步（可选）</h3>
+      <p class="hint">默认用「学习码」在两台设备间搬进度。想省事可以在这里填一个能存 JSON 的云端地址（自建 / Supabase / jsonbin 等都行），之后一键上传、一键拉取</p>
+      <input id="cUrl" value="${S.parent.cloud.url}" placeholder="云同步地址，如 https://xxx/api/进度" style="width:100%;margin-bottom:8px">
+      <input id="cTok" value="${S.parent.cloud.token}" placeholder="令牌 Token（没有就留空）" style="width:100%">
+      <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap">
+        <button class="midBtn" onclick="saveCloud()">保存地址</button>
+        <button class="midBtn" onclick="cloudPush()">⬆️ 上传进度</button>
+        <button class="midBtn" onclick="cloudPull()">⬇️ 拉取进度</button>
+      </div>
+      <p id="cloudTip" style="font-size:13px;color:#8A8073;margin-top:8px"></p>
+    </div>
+    <div style="margin-top:16px"><button class="midBtn" onclick="lockNow()">🔒 立刻锁上家长中心</button></div>
+  </div>`;
+}
+/* ---------- 密码锁 ---------- */
+function renderLock(){
+  const setup=P_SETUP||!S.parent.pin;
+  const title=setup?(P_MODE==="set2"?"🔐 再输一次刚才的密码":"🔐 设置家长密码"):"🔒 家长中心";
+  const sub=setup?"设一个 4 位数字密码，孩子就改不了定价、也批不了心愿券":"请输入 4 位家长密码";
+  $("#parentZone").innerHTML=`
+  <div class="lockWrap wob2">
+    <div class="lico">${setup?"🔐":"🔒"}</div>
+    <h2 style="font-size:25px;margin-bottom:6px">${title}</h2>
+    <p style="font-size:14.5px;color:#7A7060">${sub}</p>
+    <div class="pinRow">
+      ${Array.from({length:P_LEN},(_,i)=>`<input class="pinBox ${i===P_BUF.length?"on":""}" id="pb${i}" value="${P_BUF[i]?"●":""}" readonly>`).join("")}
+    </div>
+    <p id="pinTip" style="font-size:13.5px;color:#B23A30;min-height:20px">${P_TIP}</p>
+    <div class="keypad">
+      ${[1,2,3,4,5,6,7,8,9].map(n=>`<button onclick="pinKey('${n}')">${n}</button>`).join("")}
+      <button class="act" onclick="pinClear()">清空</button>
+      <button onclick="pinKey('0')">0</button>
+      <button class="act" onclick="pinDel()">⌫</button>
+    </div>
+    ${setup?"":`<div style="margin-top:16px"><button class="midBtn" onclick="forgotPin()">忘记密码？</button></div>`}
+    <p style="font-size:12.5px;color:#8A8073;margin-top:14px;line-height:1.7">
+      密码只保存在这台设备上，且不存明文。<br>孩子平时打开的是知识地图和闯关页面，看不到这里。
+    </p>
+  </div>`;
+}
+function pinKey(k){
+  if(P_BUF.length>=P_LEN)return;
+  P_BUF+=k;paintPin();
+  if(P_BUF.length===P_LEN)setTimeout(submitPin,160);
+}
+function paintPin(){
+  Array.from({length:P_LEN},(_,i)=>{
+    const el=$("#pb"+i);if(!el)return;
+    el.value=P_BUF[i]?"●":"";
+    el.classList.toggle("on",i===P_BUF.length);
+  });
+}
+function pinDel(){P_BUF=P_BUF.slice(0,-1);P_TIP="";paintPin();}
+function pinClear(){P_BUF="";P_TIP="";paintPin();}
+function submitPin(){
+  const pin=P_BUF;P_BUF="";P_TIP="";
+  if(P_MODE==="set1"){P_TMP=pin;P_MODE="set2";renderLock();return;}
+  if(P_MODE==="set2"){
+    if(pin!==P_TMP){P_MODE="set1";P_TIP="两次输入不一样，重新来一次";renderLock();return;}
+    S.parent.pin=H(pin);save();
+    if(!S.parent.q){openQAForm(true);return;}
+    P_SETUP=false;P_MODE="in";P_UNLOCK=true;buildParent();toast("密码设置完成 🔒");return;
+  }
+  if(H(pin)===S.parent.pin){P_UNLOCK=true;buildParent();toast("欢迎回来 👋");}
+  else{P_TIP="密码不对，再试一次";renderLock();}
+}
+function lockNow(){P_UNLOCK=false;P_BUF="";P_TIP="";buildParent();}
+function forgotPin(){
+  if(!S.parent.q){toast("之前没设找回问题，可在浏览器清除本网站数据后重新设置");return;}
+  openModal(`<div style="padding:26px"><h3 style="font-size:22px;margin-bottom:10px">🗝️ 找回密码</h3>
+    <p style="font-size:14px;color:#8A8073;margin-bottom:12px">${S.parent.q}</p>
+    <input id="fq" placeholder="写下你的答案" style="width:100%">
+    <div style="display:flex;gap:10px;margin-top:14px">
+      <button class="bigBtn" style="font-size:16px;padding:10px 24px" onclick="checkQA()">验证</button>
+      <button class="midBtn" onclick="closeModal()">取消</button></div></div>`);
+}
+function checkQA(){
+  const v=($("#fq").value||"").trim().toLowerCase();
+  if(H(v)===S.parent.a){closeModal();P_SETUP=true;P_MODE="set1";P_BUF="";P_TIP="验证通过，请设置新密码";P_UNLOCK=false;renderLock();}
+  else toast("答案不对哦，再想想");
+}
+function openQAForm(first){
+  openModal(`<div style="padding:26px"><h3 style="font-size:22px;margin-bottom:10px">🗝️ ${first?"设置找回问题":"修改找回问题"}</h3>
+    <p style="font-size:14px;color:#8A8073;margin-bottom:14px">万一忘了密码，答对这个问题就能重设（答案不存明文）</p>
+    <input id="pq" value="${S.parent.q}" placeholder="问题，比如：孩子的生日是哪天？" style="width:100%;margin-bottom:10px">
+    <input id="pa" placeholder="答案" style="width:100%">
+    <div style="display:flex;gap:10px;margin-top:14px">
+      <button class="bigBtn" style="font-size:16px;padding:10px 24px" onclick="saveQA(${!!first})">保存</button>
+      <button class="midBtn" onclick="closeModal()">取消</button></div></div>`);
+}
+function saveQA(first){
+  const q=($("#pq").value||"").trim(), a=($("#pa").value||"").trim();
+  if(!q){toast("先写个问题");return;}
+  if(first&&!a){toast("答案也要填哦");return;}
+  S.parent.q=q;
+  if(a)S.parent.a=H(a.toLowerCase());
+  save();closeModal();
+  if(first){P_SETUP=false;P_MODE="in";P_UNLOCK=true;buildParent();toast("家长密码设置完成 🔒");}
+  else toast("找回问题已更新");
+}
+function openPinChange(){
+  openModal(`<div style="padding:26px"><h3 style="font-size:22px;margin-bottom:12px">🔑 修改家长密码</h3>
+    <input id="op" type="password" placeholder="现在的密码" style="width:100%;margin-bottom:10px">
+    <input id="np" type="password" placeholder="新的 4 位数字密码" style="width:100%;margin-bottom:10px">
+    <input id="np2" type="password" placeholder="再输一次新密码" style="width:100%">
+    <div style="display:flex;gap:10px;margin-top:14px">
+      <button class="bigBtn" style="font-size:16px;padding:10px 24px" onclick="doPinChange()">保存</button>
+      <button class="midBtn" onclick="closeModal()">取消</button></div></div>`);
+}
+function doPinChange(){
+  const o=$("#op").value,n1=$("#np").value,n2=$("#np2").value;
+  if(H(o)!==S.parent.pin){toast("现在的密码不对");return;}
+  if(!/^\d{4}$/.test(n1)){toast("新密码要是 4 位数字");return;}
+  if(n1!==n2){toast("两次新密码不一样");return;}
+  S.parent.pin=H(n1);save();closeModal();toast("密码已更新 🔒");
+}
+/* ---------- 定价与审批 ---------- */
+function savePrice(i){
+  const v=parseInt(($("#pc"+i)||{}).value);
+  if(!v||v<50){toast("积分至少 50 分");return;}
+  S.wishes[i].c=v;save();buildWish();toast("价格已更新："+S.wishes[i].n+" → "+v+" 分");
+}
+function resetPrices(){
+  S.wishes=DEF_WISHES.slice();
+  save();buildWish();buildParent();toast("已恢复默认心愿清单");
+}
+function approveTicket(i){S.tickets[i].st="ok";save();buildWish();buildParent();toast("已批准，孩子可以拿这张券来兑啦");}
+function rejectTicket(i){
+  const t=S.tickets[i];S.energy+=t.c;S.tickets.splice(i,1);
+  save();buildWish();buildParent();toast("已驳回，" + t.c + " 积分退回给孩子");
+}
+function markUsed(i){S.tickets[i].used=true;save();buildWish();buildParent();toast("已标记为兑现 ❤️");}
+function saveCap(){
+  const v=parseInt(($("#pCap")||{}).value)||0;
+  S.parent.cap=v>0?v:0;save();
+  toast(S.parent.cap?("每日上限设为 "+S.parent.cap+" 积分"):"已取消每日上限");
+}
+function saveApprove(){
+  S.parent.approve=($("#pApprove")||{}).value==="1";
+  save();toast(S.parent.approve?"已开启：兑换需要家长批准":"已关闭：孩子可以自己兑换");
+}
+/* ---------- 云同步 ---------- */
+function saveCloud(){
+  S.parent.cloud={url:($("#cUrl").value||"").trim(),token:($("#cTok").value||"").trim()};
+  save();toast("云同步地址已保存");
+}
+function cloudTip(t){const el=$("#cloudTip");if(el)el.textContent=t;}
+async function cloudPush(){
+  const c=S.parent.cloud;
+  if(!c.url){cloudTip("先填一个云端地址");return;}
+  cloudTip("正在上传…");
+  const ctl=new AbortController(),tm=setTimeout(()=>ctl.abort(),8000);
+  try{
+    const r=await fetch(c.url,{method:"POST",signal:ctl.signal,
+      headers:Object.assign({"Content-Type":"application/json"},c.token?{Authorization:"Bearer "+c.token}:{}),
+      body:JSON.stringify({app:"math-island",who:S.name||"child",at:new Date().toISOString(),data:S})});
+    if(!r.ok)throw new Error("HTTP "+r.status);
+    cloudTip("已上传到云端 ✅");toast("进度已上传 ☁️");
+  }catch(e){cloudTip("上传失败："+e.message+"（本地进度不受影响）");}
+  finally{clearTimeout(tm);}
+}
+async function cloudPull(silent){
+  const c=S.parent.cloud;
+  if(!c.url){if(!silent)cloudTip("先填一个云端地址");return false;}
+  cloudTip("正在拉取…");
+  const ctl=new AbortController(),tm=setTimeout(()=>ctl.abort(),8000);
+  try{
+    const r=await fetch(c.url,{signal:ctl.signal,
+      headers:c.token?{Authorization:"Bearer "+c.token}:{}});
+    if(!r.ok)throw new Error("HTTP "+r.status);
+    const o=await r.json();
+    const d=(o&&o.data)||o;
+    if(!d||(!d.log&&!d.done))throw new Error("云端返回的不是本应用的存档");
+    Object.assign(S,d);initS();save();refreshAll();
+    cloudTip("已从云端拉取进度 ✅");toast("进度已同步 ☁️");return true;
+  }catch(e){cloudTip("拉取失败："+e.message+"（本地进度不受影响）");return false;}
+  finally{clearTimeout(tm);}
+}
+
+/* 学习码：把存档编成一串字符串 */
+function makeCode(){
+  const data=JSON.stringify({v:3,n:S.name,e:S.energy,d:S.done,b:S.badges,m:S.master,l:S.log.slice(-120),
+    w:S.wishes,t:S.tickets,s:S.streak,ld:S.lastDay,g:S.gain,p:S.parent});
+  try{
+    return "MIAO1-"+btoa(unescape(encodeURIComponent(data))).replace(/=+$/,"");
+  }catch(e){return "MIAO1-"+encodeURIComponent(data);}
+}
+function applyCode(code){
+  try{
+    let raw=code.trim().replace(/^MIAO1-/,"");
+    let json=decodeURIComponent(escape(atob(raw)));
+    const o=JSON.parse(json);
+    if(!o.d&&!o.e&&!o.l)throw 0;
+    S.name=o.n||"";S.energy=o.e||0;S.done=o.d||[];S.badges=o.b||[];S.master=o.m||{};
+    S.log=o.l||[];S.wishes=o.w&&o.w.length?o.w:DEF_WISHES.slice(0,4);S.tickets=o.t||[];
+    S.streak=o.s||0;S.lastDay=o.ld||"";
+    S.gain=o.g||{};S.parent=o.p||S.parent;initS();
+    save();refreshAll();buildParent();toast("进度已同步！继续学习吧");closeModal();
+    markSync();window._applyOK=true;
+  }catch(e){window._applyOK=false;toast("这串学习码看不懂诶，检查一下有没有漏字符");}
+}
+function copyStr(s,tip){
+  try{
+    const ta=document.createElement("textarea");ta.value=s;ta.style.position="fixed";ta.style.opacity="0";
+    document.body.appendChild(ta);ta.select();document.execCommand("copy");document.body.removeChild(ta);
+    toast(tip||"已复制");
+  }catch(e){toast("复制失败，请手动长按选中复制");}
+}
+function copyEl(s){copyStr(s,"学习码已复制，先存好在聊天草稿里");}
+function copyCode(){
+  const ta=$("#codeBox");ta.select();
+  try{document.execCommand("copy");toast("学习码已复制，发给另一台设备粘贴即可");}
+  catch(e){toast("请手动长按复制上面的学习码");}
+}
+function downloadFile(){
+  const blob=new Blob([JSON.stringify(S,null,1)],{type:"application/json"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="数学冒险岛-学习进度-"+today()+".json";
+  a.click();URL.revokeObjectURL(a.href);
+  toast("已导出备份文件");
+}
+function openImport(){
+  openModal(`<div style="padding:26px"><h3 style="font-size:22px;margin-bottom:12px">📥 导入学习进度</h3>
+    <p style="font-size:14px;color:#8A8073;margin-bottom:14px">粘贴你在别的设备上复制的学习码，或者选择备份文件</p>
+    <textarea id="impCode" rows="5" placeholder="在这里粘贴学习码…" style="width:100%;font-size:12px;word-break:break-all"></textarea>
+    <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+      <button class="bigBtn" style="font-size:16px;padding:10px 24px" onclick="applyCode(document.getElementById('impCode').value)">导入</button>
+      <input type="file" accept=".json" onchange="importFile(this)" style="border:none;padding:4px">
+      <button class="midBtn" onclick="closeModal()">取消</button></div></div>`);
+}
+function importFile(inp){
+  const f=inp.files&&inp.files[0];
+  if(!f)return;
+  const fr=new FileReader();
+  fr.onload=()=>{
+    try{
+      const o=JSON.parse(fr.result);
+      if(!o.done&&!o.log)throw 0;
+      Object.assign(S,o);initS();save();refreshAll();closeModal();toast("文件导入成功！");
+      markSync();
+    }catch(e){toast("这个文件读不出来诶");}
+  };
+  fr.readAsText(f);
+}
+function resetAll(){
+  if(!confirm("确定要清空所有进度重新开始吗？积分、勋章和心愿券都会消失哦"))return;
+  localStorage.removeItem("math-island-bsd");
+  S={};initS();save();refreshAll();toast("已清空，重新出发！");
+}
+/* ============ 通用弹窗 ============ */
+function openModal(html){$("#modalBox").innerHTML=`<button class="closeX" onclick="closeModal()">✕</button>`+html;$("#modalMask").classList.add("show");}
+function closeModal(){$("#modalMask").classList.remove("show");}
+/* ============ 开机登录门（换设备 = 在这里登录） ============ */
+function gateShow(){
+  $("#gateWays").style.display="";
+  $("#gateBody").classList.remove("show");$("#gateBody").innerHTML="";
+  document.querySelectorAll("#gateWays .gateWay").forEach(w=>w.classList.remove("on"));
+  $("#gateSub").innerHTML="这台设备上还没有学习记录 —— 你是第一次来，还是在别的电脑 / 平板上学过啦？";
+  $("#gateFoot").innerHTML=`<p style="font-size:14px;color:#8A8073;margin-top:16px;line-height:1.7">
+    学习进度保存在<b>打开网页的那台设备上</b>，不会自动跑到另一台。<br>换设备时在老设备上复制「学习码」，在新设备上粘贴，就等于登录。<br>
+    📱 用平板学？不用下载 App —— 登录后在「我 / 同步」里把这个网址<b>添加到主屏幕</b>，以后点桌面图标就能打开。</p>`;
+  $("#gate").classList.add("show");
+}
+function gateHide(){$("#gate").classList.remove("show");renderAcct();}
+function gateReset(){
+  $("#gateBody").classList.remove("show");$("#gateBody").innerHTML="";
+  document.querySelectorAll("#gateWays .gateWay").forEach(w=>w.classList.remove("on"));
+}
+function markSync(){DEV.lastSync=new Date().toLocaleString("zh-CN",{hour12:false});saveDev();}
+function autoDevTag(){
+  if(DEV.tag)return DEV.tag;
+  const ua=navigator.userAgent, touch=navigator.maxTouchPoints>1;
+  DEV.tag=(/iPad|Tablet|Android/i.test(ua)||touch)?"平板":"电脑";saveDev();return DEV.tag;
+}
+function gatePick(k){
+  document.querySelectorAll("#gateWays .gateWay").forEach((w,i)=>w.classList.toggle("on",k==="new"?i===0:i===1));
+  const b=$("#gateBody");b.classList.add("show");
+  if(k==="new"){
+    $("#gateSub").innerHTML="新账号会存在这台设备上 —— 之后想换回来，随时可以在「我 / 同步」里切换账号";
+    b.innerHTML=`<h4 style="font-size:21px">🌱 新同学，先取个名字吧</h4>
+      <p class="hint" style="margin:6px 0 12px">写上名字后，家长中心的报告和学习码都会带上它</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+        <input id="gateName" placeholder="比如：小明" style="width:220px;font-size:17px">
+        <button class="bigBtn" style="font-size:17px;padding:10px 26px" onclick="gateNew()">开始冒险 →</button>
+      </div>
+      <span class="gateBack" onclick="gateReset()">← 我不是新来的</span>`;
+  }else{
+    $("#gateSub").innerHTML="把原来的进度搬过来 —— 进度存在那台设备上，用下面任意一种方式登录回来";
+    b.innerHTML=`<h4 style="font-size:21px">🔑 登录后接着学</h4>
+      <p class="hint" style="margin:6px 0 12px">在<b>原来那台设备</b>打开「我 / 同步」复制学习码（或导出备份文件），再回到这里粘贴</p>
+      <div style="display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap">
+        <button class="midBtn" id="gT1" onclick="gateTab('code')">① 粘贴学习码</button>
+        <button class="midBtn" id="gT2" onclick="gateTab('file')">② 上传备份文件</button>
+        <button class="midBtn" id="gT3" onclick="gateTab('cloud')">③ 从云端拉取</button>
+      </div>
+      <div id="gTabBody"></div>
+      <span class="gateBack" onclick="gateReset()">← 我其实是新来的</span>`;
+    gateTab("code");
+  }
+}
+function gateTab(t){
+  ["code","file","cloud"].forEach((x,i)=>{
+    const btn=$("#gT"+(i+1));if(btn)btn.style.background=x===t?"var(--yellow)":"#fff";
+  });
+  const box=$("#gTabBody");
+  if(t==="code")box.innerHTML=`<textarea id="gCode" rows="4" placeholder="在这里粘贴学习码（MIAO1- 开头那一串）…" style="width:100%;font-size:12px;word-break:break-all"></textarea>
+    <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;align-items:center">
+      <button class="bigBtn" style="font-size:17px;padding:10px 26px" onclick="gateLogin('code')">登录 →</button>
+      <span style="font-size:13px;color:#8A8073">学习码里是进度数据，不含答案，谁拿到都能登录 —— 别发到公开群里</span>
+    </div>`;
+  if(t==="file")box.innerHTML=`<p class="hint" style="margin-bottom:10px">选之前导出的「数学冒险岛-学习进度-日期.json」备份文件</p>
+    <input type="file" accept=".json" onchange="gateFile(this)" style="border:none;padding:4px">`;
+  if(t==="cloud")box.innerHTML=`<p class="hint" style="margin-bottom:10px">如果家长填过云端地址，直接用地址把进度拉下来（适合两台设备之间频繁切换）</p>
+    <input id="gUrl" placeholder="云端地址，如 https://xxx/api/进度" style="width:100%;margin-bottom:8px">
+    <input id="gTok" placeholder="令牌 Token（没有就留空）" style="width:100%;margin-bottom:10px">
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <button class="bigBtn" style="font-size:17px;padding:10px 26px" onclick="gateLogin('cloud')">☁️ 拉取并登录</button>
+      <span id="gCloudTip" style="font-size:13px;color:#8A8073"></span>
+    </div>`;
+}
+function gateNew(){
+  const n=($("#gateName").value||"").trim();
+  S.name=n;autoDevTag();DEV.lastSync="";saveDev();save();
+  gateHide();refreshAll();
+  toast(n?`欢迎你，${n}！从第一关出发吧 🎒`:"欢迎来到数学冒险岛 🎒");
+}
+function gateLogin(way){
+  if(way==="code"){
+    const v=($("#gCode")?.value||"").trim();
+    if(!v){toast("先把学习码粘贴进来哦");return;}
+    applyCode(v);
+    if(!window._applyOK)return;
+    autoDevTag();markSync();gateHide();refreshAll();
+    toast(`欢迎回来，${S.name||"小冒险家"}！进度已登录 ✅`);
+  }
+  if(way==="cloud"){
+    const url=($("#gUrl").value||"").trim(),tok=($("#gTok").value||"").trim();
+    if(!url){const t=$("#gCloudTip");t.textContent="先填云端地址";return;}
+    S.parent.cloud={url:url,token:tok};const t=$("#gCloudTip");t.textContent="正在拉取…";
+    cloudPull(true).then(ok=>{
+      if(!ok){t.textContent="拉取失败，检查地址或用「粘贴学习码」登录";return;}
+      autoDevTag();markSync();gateHide();refreshAll();
+      toast(`欢迎回来，${S.name||"小冒险家"}！已从云端登录 ☁️`);
+    });
+  }
+}
+function gateFile(inp){
+  const f=inp.files&&inp.files[0];if(!f)return;
+  const fr=new FileReader();
+  fr.onload=()=>{
+    try{
+      const o=JSON.parse(fr.result);
+      if(!o.done&&!o.log&&!o.e)throw 0;
+      Object.assign(S,o);initS();save();autoDevTag();markSync();gateHide();refreshAll();
+      toast(`欢迎回来，${S.name||"小冒险家"}！备份已导入 ✅`);
+    }catch(e){toast("这个文件读不出来诶，换「粘贴学习码」试试");}
+  };
+  fr.readAsText(f);
+}
+/* 在这台设备上换一个账号登录 */
+function switchAccount(){
+  const code=makeCode();
+  if(!confirm("要在这台设备上切换账号吗？\n\n· 当前进度会从这台设备清除（原来的设备不受影响）\n· 建议先在下面复制好学习码，之后还能登回来"))return;
+  copyEl(code);
+  localStorage.removeItem("math-island-bsd");S={};initS();save();refreshAll();gateShow();
+}
+/* ============ 视图切换 ============ */
+function switchView(v){
+  document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.view===v));
+  document.querySelectorAll(".view").forEach(x=>x.classList.remove("show"));
+  $("#view-"+v).classList.add("show");
+  if(v==="games")buildGames();
+  if(v==="medals")buildMedals();
+  if(v==="wish")buildWish();
+  if(v==="coach")buildCoach();
+  if(v==="me")buildMe();
+  if(v==="parent")buildParent();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>switchView(b.dataset.view));
+/* ============ 渲染 ============ */
+function touchStreak(){
+  const td=today();
+  if(S.lastDay!==td){
+    const y=new Date(Date.now()-86400000).toISOString().slice(0,10);
+    S.streak=(S.lastDay===y)?(S.streak||0)+1:1;
+    S.lastDay=td;
+  }
+}
+function renderAcct(){
+  const b=$("#acctBtn");if(!b)return;
+  b.innerHTML=`👤 ${S.name?S.name+" · ":""}同步`;
+}
+function render(){
+  touchStreak();
+  $("#energy").textContent=S.energy;
+  $("#acctBtn").innerHTML=`👤 ${S.name?S.name+" · ":""}同步`;
+  calcBadges();
+  $("#medalCount").textContent=S.badges.length;
+  buildResume();
+  buildCoach();
+}
+function refreshAll(){buildMap();buildGames();buildMedals();buildWish();buildCoach();render();}
+buildMap();buildGames();buildMedals();buildWish();buildCoach();render();
+/* 调试入口：#u1 打开海报，#quiz 直接开始，#games/#wish/#coach/#me/#medals 切视图 */
+addEventListener("load",()=>{
+  const h=location.hash.slice(1);
+  devSince();
+  if(IS_NEW_DEVICE&&h!=="quiz"&&!/^u\d+$/.test(h))gateShow();   /* 换设备首次打开 → 登录 */
+  if(h==="login")gateShow();                                   /* 手动调出登录页：#login */
+  if(/^u\d+$/.test(h))openPoster(h);
+  else if(h==="quiz")startQuiz("u1");
+  else if(["games","wish","coach","me","medals","parent"].includes(h))switchView(h);
+});
+</script>
+</body>
+</html>
